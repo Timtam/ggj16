@@ -5,6 +5,7 @@ import button
 from button import *
 import slider
 from slider import *
+import sys
 import time
 
 class Scene:
@@ -72,7 +73,7 @@ class Scene:
 			height = 0
 			for line in lines:
 				tw, th = font.size(line)
-				ts = font.render(line, 0, (255, 255, 255))
+				ts = font.render(line.decode(sys.getfilesystemencoding()), 0, (255, 255, 255))
 				surf[0].blit(ts, (0, height))
 				height += th + 2
 			self.textSurfs.append(surf)

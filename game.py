@@ -1,4 +1,4 @@
-# coding=utf-8
+﻿# coding=utf-8
 import os, sys
 import pygame
 import scene
@@ -65,7 +65,7 @@ class MainClass:
 					self.currentScene.Pause()
 					self.continueButton = Button("Fortsetzen", 1, (self.width - 190) / 2, (self.height - 250) / 2)
 					self.saveButton = Button("Speichern", 1, (self.width - 190) / 2, (self.height - 250) / 2 + 100)
-					self.mainMenuButton = Button("Hauptmenü", 1, (self.width - 190) / 2, (self.height - 250) / 2 + 200)
+					self.mainMenuButton = Button("Hauptmenü".decode("utf-8"), 1, (self.width - 190) / 2, (self.height - 250) / 2 + 200)
 			self.currentScene.HandleEvent(event)
 		elif self.state == 2:
 			self.MoveMenuPointer(event)
