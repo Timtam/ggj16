@@ -1,16 +1,16 @@
 1
 scene2
-banküberfall.png
+bankueberfall.png
 scene1\toni_1_1.ogg
-Bankräuber
-    Ich will die Hände sehen! Alle da rüber! Und Ruhe!
+BankrÃ¤uber
+    Ich will die HÃ¤nde sehen! Alle da rÃ¼ber! Und Ruhe!
 #
 scene1\toni_1_2.ogg
-Bankräuber
+BankrÃ¤uber
     Ein Wort und die Putze schiebt ne Extraschicht!
 #
 scene1\toni_1_3.ogg
-Bankräuber
+BankrÃ¤uber
     Alles Geld da rein!
 #
 scene1\bankier_1_1.ogg
@@ -18,13 +18,13 @@ Bankier
     Ich mach ja schon...
 #
 scene1\toni_1_4.ogg
-Bankräuber
-    Auch du hältst die Klappe
+BankrÃ¤uber
+    Auch du hÃ¤ltst die Klappe
 #
 scene1\toni_1_5.ogg
-Bankräuber
-    Du da! Du gehst rüber, holst mir das Geld und bringst es mir her! Aber so, dass ich dich sehen kann!
+BankrÃ¤uber
+    Du da! Du gehst rÃ¼ber, holst mir das Geld und bringst es mir her! Aber so, dass ich dich sehen kann!
 #
 scene1\buddy_1_1.ogg
 Buddy
-    In diesem Moment habe ich mir gewünscht, dass nicht alle Menschen so gierig wären...
+    In diesem Moment habe ich mir gewÃ¼nscht, dass nicht alle Menschen so gierig wÃ¤ren...

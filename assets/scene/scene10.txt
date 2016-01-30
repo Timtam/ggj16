@@ -1,0 +1,6 @@
+1
+scene11
+hobo_grey.png
+scene3\christian_3_1.ogg
+Buddy
+    *Szene10*

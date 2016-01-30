@@ -1,0 +1,9 @@
+2
+scene8
+scene10
+reden#+2
+nicht reden#-2
+bebi.png
+scene3\christian_3_1.ogg
+Buddy
+    *Szene6*

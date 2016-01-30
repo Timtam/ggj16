@@ -10,10 +10,13 @@ class commons:
 		self.font = pygame.font.Font("assets\\font\\KenVector Future.ttf", 14)
 		self.ui = UI()
 		self.bass = BASS("bass.dll", True)
+		
 	def getUI(self):
 		return self.ui
+	
 	def getTextFont(self):
 		return self.font
+	
 	def getBass(self):
 		return self.bass
 	

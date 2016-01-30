@@ -1,0 +1,6 @@
+1
+scene6
+menge_grey.png
+scene3\christian_3_1.ogg
+Buddy
+    *Szene 4*
