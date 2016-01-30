@@ -1,7 +1,0 @@
-2
-test
-test3
-Zurück
-Entscheidung B
-test1.png
-Dies ist eine weitere Szene. Sie sollte eine Entscheidung präsentieren.
