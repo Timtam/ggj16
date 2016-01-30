@@ -42,6 +42,7 @@ class Scene:
 		self.time = 0
 		self.switchScene = None
 		self.state = 0 # 0 - normal, 1 - present choice
+		bass = getCommon().getBass()
 		
 		# create slider for text box
 		# self.slider = Slider(self.screen, self.screen.get_width() - 20, 20, self.textBoxHeight - 20)
@@ -49,13 +50,15 @@ class Scene:
 		font = getCommon().getTextFont()
 		for box in self.texts:
 			lines = box.strip().split("\n")
+			sound = "assets\\sound\\" + lines.pop(0)
+			stream = bass.StreamCreateFile(False, sound)
 			height, width = 0, 0
 			for line in lines:
 				tw, th = font.size(line)
 				height += th + 2
 				if tw > width:
 					width = tw
-			surf = [pygame.Surface((width, height), pygame.SRCALPHA), height, width]
+			surf = [pygame.Surface((width, height), pygame.SRCALPHA), height, width, stream]
 			height = 0
 			for line in lines:
 				tw, th = font.size(line)
@@ -63,14 +66,20 @@ class Scene:
 				surf[0].blit(ts, (0, height))
 				height += th + 2
 			self.textSurfs.append(surf)
+			
+		self.textSurfs[0][3].Channel.Play()
 		
-		bass = getCommon().getBass()
+	def Pause(self):
+		self.textSurfs[self.currentText][3].Channel.Pause()
+	def Unpause(self):
+		self.textSurfs[self.currentText][3].Channel.Play()
 		
 	def HandleEvent(self, event):
 		# TODO: handle keydown for skipping
 		if self.state == 0:
 			if event.type == pygame.KEYDOWN:
 				if event.key == K_SPACE or event.key == K_RETURN:
+					self.textSurfs[self.currentText][3].Channel.Stop()
 					self.currentText += 1
 					if self.currentText == len(self.textSurfs):
 						self.currentText -= 1
@@ -85,6 +94,8 @@ class Scene:
 						else:
 							#no choise --> advance directly
 							self.switchScene = self.next[0]
+					else:
+						self.textSurfs[self.currentText][3].Channel.Play()
 			
 	def Update(self):
 		if self.state == 0:
