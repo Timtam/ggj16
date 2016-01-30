@@ -92,7 +92,7 @@ class MainClass:
 					if not os.path.exists("save\\"):
 						os.makedirs("save\\")
 					handle = open("save\\" + self.inputText, "w")
-					handle.write(self.loadedScene)
+					handle.write(self.loadedScene + "\n" + str(self.scoreCounter))
 					handle.close()
 					self.state = 2
 				elif event.key == K_BACKSPACE:
@@ -117,6 +117,7 @@ class MainClass:
 			if self.newGameButton.GetState():
 				self.newGameButton.SetState(False)
 				self.LoadScene("scene1.txt")
+				self.scoreCounter = 0
 				self.state = 1
 			if self.loadGameButton.GetState():
 				self.loadGameButton.SetState(False)
@@ -131,6 +132,15 @@ class MainClass:
 			self.currentScene.Update()
 			next = self.currentScene.GetNextScene()
 			if next:
+				if "#" in next:
+					idx = next.find("#")
+					counter = next[(idx + 1):]
+					next = next[:idx]
+					if counter[0] == "+":
+						self.scoreCounter += int(counter[1:])
+					else:
+						self.scoreCounter -= int(counter[1:])
+					print(self.scoreCounter)
 				self.LoadScene(next)
 		elif self.state == 2:
 			self.continueButton.Update()
@@ -152,6 +162,8 @@ class MainClass:
 					b[0].SetState(False)
 					handle = open("save\\" + b[1], "r")
 					self.LoadScene(handle.readline().strip())
+					self.scoreCounter = int(handle.readline().strip())
+					print(self.scoreCounter)
 					self.state = 1
 					handle.close()
 					

@@ -1,5 +1,5 @@
 1
 scene1
-scene3.png
+menge.png
 <sound>
 Test

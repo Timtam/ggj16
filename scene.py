@@ -104,7 +104,15 @@ class Scene:
 							# create buttons for choice
 							self.buttons = list()
 							xOff = (self.screen.get_width() - (240 * len(self.choices) - 50)) / 2
+							i = 0
 							for c in self.choices:
+								counter = ""
+								if "#" in c:
+									idx = c.find("#")
+									counter = c[(idx + 1):]
+									c = c[:idx]
+								self.choices[i] = counter
+								i += 1
 								self.buttons.append(Button(c, 1, xOff, self.screen.get_height() - self.textBoxHeight - 70))
 								xOff += 240
 						else:
@@ -121,7 +129,7 @@ class Scene:
 				if self.selectedChoice < 0: self.selectedChoice = len(self.choices) - 1
 				if self.selectedChoice >= len(self.choices): self.selectedChoice = 0
 				if event.key == K_RETURN:
-					self.switchScene = self.next[self.selectedChoice]
+					self.switchScene = self.next[self.selectedChoice] + "#" + self.choices[self.selectedChoice]
 			
 	def Update(self):
 		if self.state == 0:
@@ -131,7 +139,7 @@ class Scene:
 				b = self.buttons[i]
 				b.Update()
 				if b.GetState():
-					self.switchScene = self.next[i]
+					self.switchScene = self.next[i] + "#" + self.choices[i]
 					
 	def GetNextScene(self):
 		return self.switchScene

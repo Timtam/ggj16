@@ -1,26 +1,30 @@
 2
-scene3
 scene3_grey
-Blaues T-Shirt
-Graues T-Shirt
-scene2.png
-<sound>
+scene3
+Grau#-2
+Blau#+2
+schrank.png
+scene2\christian_2_1.ogg
 Buddy
-    An diesem Tag merkte ich, dass ich anders bin. Ich bin Buddy und will heute noch ein bisschen spazieren
-    und über das seltsame Ereignis in der Bank nachdenken.
+    An diesem Tag merkte ich, dass ich anders bin. Wenn ich heute an die Ereignisse von damals denke, fällt mir ein weiterer
+    besonderer Tag ein. Ein paar Jahre nach dem Überfall wollte ich spazieren gehen und über alles nachdenken.
 #
-<sound>
+scene2\christian_2_2.ogg
 Buddy
-    Scheiße!
+    Ach Mist!
 #
-<sound>
+scene2\christian_2_3.ogg
 Buddy  
-    Was will ich eigentlich anziehen?
+    Was ziehe ich heute eigentlich an?
 #
-<sound>
+scene2\christian_2_4.ogg
 Buddy
-    Hm... Ich glaube, ich habe sowieso nur noch wenige saubere T-Shirts...
+    Hm... Ich glaube, ich habe sowieso nur noch zwei saubere T-Shirts...
 #
-<sound>
+scene2\christian_2_5.ogg
 Buddy
-    Puh, nur noch 2 saubere T-Shirts, na da habe ich ja viel Auswahl...
+    Hm. Sind sowieso nur noch zwei saubere T-Shirts da. Da habe ich ja 'ne Riesenauswahl.
+#
+scene2\christian_2_6.ogg
+Buddy
+    OK, blau oder grau?
