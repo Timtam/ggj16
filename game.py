@@ -37,6 +37,7 @@ class MainClass:
 			if event.type == pygame.KEYDOWN:
 				if event.key == K_ESCAPE:
 					self.state = 2
+					self.currentScene.Pause()
 					self.continueButton = Button("Fortsetzen", 1, (self.width - 190) / 2, (self.height - 250) / 2)
 					self.saveButton = Button("Speichern", 1, (self.width - 190) / 2, (self.height - 250) / 2 + 100)
 					self.mainMenuButton = Button("Hauptmenü", 1, (self.width - 190) / 2, (self.height - 250) / 2 + 200)
@@ -45,6 +46,7 @@ class MainClass:
 			if event.type == pygame.KEYDOWN:
 				if event.key == K_ESCAPE:
 					self.state = 1
+					self.currentScene.Unpause()
 		
 	def Update(self):
 		if self.state == 0:
