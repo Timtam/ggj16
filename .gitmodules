@@ -1,0 +1,3 @@
+[submodule "Bass4Py"]
+	path = Bass4Py
+	url = https://github.com/Timtam/Bass4Py.git
