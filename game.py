@@ -54,7 +54,7 @@ class MainClass:
 			if self.exitButton.GetState():
 				sys.exit()
 			if self.newGameButton.GetState():
-				self.currentScene = Scene.fromFile("assets\\scene\\test.txt", self.screen)
+				self.currentScene = Scene.fromFile("assets\\scene\\scene1.txt", self.screen)
 				self.darken = pygame.Surface((self.width, self.height))
 				self.darken.fill((0, 0, 0))
 				self.darken.set_alpha(127)

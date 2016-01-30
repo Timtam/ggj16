@@ -5,6 +5,7 @@ import button
 from button import *
 import slider
 from slider import *
+import time
 
 class Scene:
 	textBoxHeight = 200
@@ -21,13 +22,14 @@ class Scene:
 				choices.append(handle.readline().strip())
 		else:
 			choices.append("Weiter")
+		sound = "assets\\sound\\" + handle.readline().strip()
 		bg = "assets\\bg\\" + handle.readline().strip()
 		text = ""
 		for line in handle:
 			text += line	
-		return Scene(screen, bg, text, next, choices)
+		return Scene(screen, sound, bg, text, next, choices)
 		
-	def __init__(self, screen, bg, text, next, choices):
+	def __init__(self, screen, sound, bg, text, next, choices):
 		self.screen = screen
 		sw, sh = self.screen.get_width(), self.screen.get_height()
 		self.background = pygame.transform.scale(pygame.image.load(bg), (sw, sh))
@@ -39,6 +41,14 @@ class Scene:
 		self.switchScene = None
 		self.state = 0 # 0 - normal, 1 - present choice
 		
+		bass = getCommon().getBass()
+		stream = bass.StreamCreateFile(False, sound)
+		stream.Channel.Play()
+		#  File "C:\Python27\lib\site-packages\Bass4Py\basschannel.py", line 157, in Bytes2Seconds
+		#    result=self.__bass_channelbytes2seconds(self._stream,bytes)
+		#TypeError: this function takes 3 arguments (2 given)
+		self.endtime = time.time() + 10#stream.Channel.Bytes2Seconds(stream.Channel.GetLength(BASS_POS_BYTE))
+		
 	def HandleEvent(self, event):
 		# TODO: handle keydown for skipping
 		if self.state == 1:
@@ -46,8 +56,7 @@ class Scene:
 			
 	def Update(self):
 		if self.state == 0:
-			# TODO: wait for scene to finish playing
-			if self.time > 200:
+			if time.time() >= self.endtime:
 				# create slider for text box
 				self.slider = Slider(self.screen, self.screen.get_width() - 20, 20, self.textBoxHeight - 20)
 				# render text
@@ -75,7 +84,6 @@ class Scene:
 					self.buttons.append(Button(c, 1, xOff, self.screen.get_height() - 75))
 					xOff += 240
 				self.state = 1
-			self.time += 1
 		elif self.state == 1:
 			for i in range(len(self.next)):
 				b = self.buttons[i]
