@@ -16,7 +16,7 @@ class Scene:
 		next = list()
 		choices = list()
 		for i in range(numNext):
-			next.append("assets\\scene\\" + handle.readline().strip() + ".txt")
+			next.append(handle.readline().strip() + ".txt")
 		if numNext > 1:
 			for i in range(numNext):
 				choices.append(handle.readline().strip())
@@ -27,12 +27,17 @@ class Scene:
 		text = ""
 		for line in handle:
 			text += line
+		handle.close()
 		return Scene(screen, bg, text, next, choices)
 		
 	def __init__(self, screen, bg, text, next, choices):
 		self.screen = screen
 		sw, sh = self.screen.get_width(), self.screen.get_height()
-		self.background = pygame.transform.scale(pygame.image.load(bg), (sw, sh))
+		try:
+			self.background = pygame.image.load(bg)
+		except:
+			self.background = pygame.image.load("assets\\bg\\blank.png")
+		self.background = pygame.transform.scale(self.background, (sw, sh))
 		self.texts = text.split("#")
 		self.textSurfs = list()
 		self.currentText = 0
@@ -50,15 +55,19 @@ class Scene:
 		font = getCommon().getTextFont()
 		for box in self.texts:
 			lines = box.strip().split("\n")
-			sound = "assets\\sound\\" + lines.pop(0)
-			stream = bass.StreamCreateFile(False, sound)
+			try:
+				sound = "assets\\sound\\" + lines.pop(0)
+				stream = bass.StreamCreateFile(False, sound)
+			except:
+				stream = bass.StreamCreateFile(False, "assets\\sound\\silence.mp3")
+			#print(stream.Channel.Bytes2Seconds(stream.Channel.GetLength(BASS_POS_BYTE)))
 			height, width = 0, 0
 			for line in lines:
 				tw, th = font.size(line)
 				height += th + 2
 				if tw > width:
 					width = tw
-			surf = [pygame.Surface((width, height), pygame.SRCALPHA), height, width, stream]
+			surf = [pygame.Surface((width, height), pygame.SRCALPHA), height, width, stream, False]
 			height = 0
 			for line in lines:
 				tw, th = font.size(line)
@@ -70,9 +79,16 @@ class Scene:
 		self.textSurfs[0][3].Channel.Play()
 		
 	def Pause(self):
-		self.textSurfs[self.currentText][3].Channel.Pause()
+		try:
+			self.textSurfs[self.currentText][3].Channel.Pause()
+			self.textSurfs[self.currentText][4] = True
+		except:
+			return
+			
 	def Unpause(self):
-		self.textSurfs[self.currentText][3].Channel.Play()
+		if self.textSurfs[self.currentText][4]:
+			self.textSurfs[self.currentText][3].Channel.Play()
+			self.textSurfs[self.currentText][4] = False
 		
 	def HandleEvent(self, event):
 		# TODO: handle keydown for skipping

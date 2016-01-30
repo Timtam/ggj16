@@ -1,0 +1,26 @@
+2
+scene3
+scene3_grey
+Blaues T-Shirt
+Graues T-Shirt
+scene2.png
+<sound>
+Buddy
+    An diesem Tag merkte ich, dass ich anders bin. Ich bin Buddy und will heute noch ein bisschen spazieren
+    und über das seltsame Ereignis in der Bank nachdenken.
+#
+<sound>
+Buddy
+    Scheiße!
+#
+<sound>
+Buddy  
+    Was will ich eigentlich anziehen?
+#
+<sound>
+Buddy
+    Hm... Ich glaube, ich habe sowieso nur noch wenige saubere T-Shirts...
+#
+<sound>
+Buddy
+    Puh, nur noch 2 saubere T-Shirts, na da habe ich ja viel Auswahl...
