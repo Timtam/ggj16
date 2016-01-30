@@ -15,7 +15,7 @@ Bankräuber
 #
 scene1\bankier_1_1.ogg
 Bankier
-    OK. Ich mach ja schon...
+    Ich mach ja schon...
 #
 scene1\toni_1_4.ogg
 Bankräuber
@@ -23,7 +23,7 @@ Bankräuber
 #
 scene1\toni_1_5.ogg
 Bankräuber
-    Du da! Du gehst da rüber, holst das Geld und bringst es mir! Aber so, dass ich dich sehen kann!
+    Du da! Du gehst rüber, holst mir das Geld und bringst es mir her! Aber so, dass ich dich sehen kann!
 #
 scene1\buddy_1_1.ogg
 Buddy

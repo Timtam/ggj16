@@ -3,7 +3,7 @@ from pygame.locals import *
 
 class UI:
 	def __init__(self):
-		color = "blue"
+		color = "blue" # red, green, blue or yellow. grey is used for disabled buttons
 		borderSize = 7
 		renderBorderSize = 7
 		panelSurf = pygame.image.load("assets\\ui\\bg\\" + color + "_panel.png").convert_alpha()
@@ -39,8 +39,13 @@ class UI:
 		self.button1_up = pygame.image.load("assets\\ui\\bg\\" + color + "_button1up.png").convert_alpha()
 		self.button1_dn = pygame.image.load("assets\\ui\\bg\\" + color + "_button1dn.png").convert_alpha()
 		
+		self.button1_disabled = pygame.image.load("assets\\ui\\bg\\grey_button1up.png").convert_alpha()
+		self.button0_disabled = pygame.image.load("assets\\ui\\bg\\grey_button0up.png").convert_alpha()
+		
 		self.icon_save = pygame.image.load("assets\\ui\\icon\\save.png").convert_alpha()
 		self.icon_down = pygame.image.load("assets\\ui\\icon\\down.png").convert_alpha()
+		self.icon_left = pygame.image.load("assets\\ui\\icon\\backward.png").convert_alpha()
+		self.icon_right = pygame.image.load("assets\\ui\\icon\\forward.png").convert_alpha()
 		
 	def Panel(self, width, height):
 		surface = pygame.Surface((width, height), pygame.SRCALPHA)
@@ -59,7 +64,12 @@ class UI:
 		surface.blit(pygame.transform.scale(self.panel_MM, (width - 2 * borderSize, height - 2 * borderSize)), (borderSize, borderSize))
 		return surface
 		
-	def Button(self, state, type):
+	def Button(self, state, type, enabled = True):
+		if not enabled:
+			if type == 0:
+				return self.button0_disabled
+			elif type == 1:
+				return self.button1_disabled
 		if state:
 			if type == 0:
 				return self.button0_dn
@@ -77,5 +87,9 @@ class UI:
 			return self.icon_save
 		elif key == "down":
 			return self.icon_down
+		elif key == "left":
+			return self.icon_left
+		elif key == "right":
+			return self.icon_right
 		else:
 			return None

@@ -11,6 +11,7 @@ class Button:
 		self.left = left
 		self.state = 0
 		self.buttonType = buttonType
+		self.enabled = True
 		self.height = 50
 		if self.buttonType == 0:
 			self.icon = self.ui.Icon(text)
@@ -20,6 +21,7 @@ class Button:
 			self.width = 190
 		
 	def Update(self):
+		if not self.enabled: return
 		lmb, mmb, rmb = pygame.mouse.get_pressed()
 		if self.state == 1 and not lmb:
 			self.state = 2
@@ -31,17 +33,24 @@ class Button:
 				getCommon().getBass().StreamCreateFile(False, "assets\\sound\\ui\\switch26.ogg").Channel.Play()
 				
 	def GetState(self):
+		if not self.enabled: return False
 		return self.state == 2
 		
 	def SetState(self, state):
+		if not self.enabled: return
 		if state:
 			self.state = 2
 		else:
 			self.state = 0
+			
+	def Disable(self):
+		self.enabled = False
+	def Enable(self):
+		self.enabled = True
 	
 	def Draw(self, screen):
 		if self.state:
-			screen.blit(self.ui.Button(self.state, self.buttonType), (self.left, self.top + 4))
+			screen.blit(self.ui.Button(self.state, self.buttonType, self.enabled), (self.left, self.top + 4))
 			if self.buttonType == 0:
 				screen.blit(self.icon, (self.left, self.top))
 			elif self.buttonType == 1:
@@ -50,7 +59,7 @@ class Button:
 				ts = font.render(self.text, 0, (255, 255, 255))
 				screen.blit(ts, (self.left + (self.width - tw) / 2, self.top + (self.height - th) / 2))
 		else:
-			screen.blit(self.ui.Button(self.state, self.buttonType), (self.left, self.top))
+			screen.blit(self.ui.Button(self.state, self.buttonType, self.enabled), (self.left, self.top))
 			if self.buttonType == 0:
 				screen.blit(self.icon, (self.left, self.top - 4))
 			elif self.buttonType == 1:

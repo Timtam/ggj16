@@ -8,6 +8,7 @@ import commons
 from commons import *
 import button
 from button import *
+import time
 
 class MainClass:
 	def __init__(self, width=1280, height=720):
@@ -21,6 +22,11 @@ class MainClass:
 		self.exitButton = Button("Beenden", 1, (self.width - 190) / 2, y + 200)
 		self.buttonIdx = 0
 		self.state = 0 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game
+		
+		f = []
+		for (_,_,files) in os.walk("save\\"):
+			f.extend(files)
+		if len(f) == 0: self.loadGameButton.Disable()
 	
 	def MainLoop(self):
 		bass = getCommon().getBass()
@@ -33,22 +39,25 @@ class MainClass:
 			self.Update()
 			self.Render()
 			
+	def MoveMenuPointer(self, event):
+		if event.type == pygame.KEYDOWN:
+			if event.key == K_DOWN:
+				self.buttonIdx += 1
+			if event.key == K_UP:
+				self.buttonIdx -= 1
+			if self.buttonIdx < 0: self.buttonIdx = 2
+			elif self.buttonIdx > 2: self.buttonIdx = 0
+			
 	def HandleEvent(self, event):
 		if self.state == 0:
-			if event.type == pygame.KEYDOWN:
-				if event.key == K_DOWN:
-					self.buttonIdx -= 1
-				if event.key == K_UP:
-					self.buttonIdx += 1
-				if self.buttonIdx < 0: self.buttonIdx = 2
-				elif self.buttonIdx > 2: self.buttonIdx = 0
-				if event.key == K_RETURN:
-					if self.buttonIdx == 0:
-						self.newGameButton.SetState(True)
-					elif self.buttonIdx == 1:
-						self.continueButton.SetState(True)
-					elif self.buttonIdx == 2:
-						self.exitButton.SetState(True)
+			self.MoveMenuPointer(event)
+			if event.type == pygame.KEYDOWN and event.key == K_RETURN:
+				if self.buttonIdx == 0:
+					self.newGameButton.SetState(True)
+				elif self.buttonIdx == 1:
+					self.loadGameButton.SetState(True)
+				elif self.buttonIdx == 2:
+					self.exitButton.SetState(True)
 		elif self.state == 1:
 			if event.type == pygame.KEYDOWN:
 				if event.key == K_ESCAPE:
@@ -59,10 +68,18 @@ class MainClass:
 					self.mainMenuButton = Button("Hauptmenü", 1, (self.width - 190) / 2, (self.height - 250) / 2 + 200)
 			self.currentScene.HandleEvent(event)
 		elif self.state == 2:
+			self.MoveMenuPointer(event)
 			if event.type == pygame.KEYDOWN:
 				if event.key == K_ESCAPE:
 					self.state = 1
 					self.currentScene.Unpause()
+				if event.key == K_RETURN:
+					if self.buttonIdx == 0:
+						self.continueButton.SetState(True)
+					elif self.buttonIdx == 1:
+						self.saveButton.SetState(True)
+					elif self.buttonIdx == 2:
+						self.mainMenuButton.SetState(True)
 		elif self.state == 3:
 			if event.type == pygame.KEYDOWN:
 				if event.key == K_ESCAPE:
@@ -72,6 +89,8 @@ class MainClass:
 				if event.key == K_ESCAPE:
 					self.state = 0
 				elif event.key == K_RETURN:
+					if not os.path.exists("save\\"):
+						os.makedirs("save\\")
 					handle = open("save\\" + self.inputText, "w")
 					handle.write(self.loadedScene)
 					handle.close()
@@ -121,6 +140,7 @@ class MainClass:
 				self.state = 0
 			if self.continueButton.GetState():
 				self.state = 1
+				self.currentScene.Unpause()
 			if self.saveButton.GetState():
 				self.saveButton.SetState(False)
 				self.inputText = ""
@@ -135,6 +155,12 @@ class MainClass:
 					self.state = 1
 					handle.close()
 					
+	def RenderMenuPointer(self):
+		xOff = (time.time() * 20) % 20
+		if xOff > 10: xOff = 20 - xOff
+		y = (self.height - 250) / 2 + self.buttonIdx * 100
+		self.screen.blit(getCommon().getUI().Icon("right"), ((self.width - 190) / 2 - 50 + xOff, y))
+		self.screen.blit(getCommon().getUI().Icon("left"), ((self.width + 190) / 2 - xOff, y))
 					
 	def Render(self):
 		# TODO: draw stuff
@@ -143,6 +169,7 @@ class MainClass:
 			self.newGameButton.Draw(self.screen)
 			self.loadGameButton.Draw(self.screen)
 			self.exitButton.Draw(self.screen)
+			self.RenderMenuPointer()
 		elif self.state == 1:
 			self.currentScene.Draw()
 		elif self.state == 2:
@@ -151,6 +178,7 @@ class MainClass:
 			self.mainMenuButton.Draw(self.screen)
 			self.continueButton.Draw(self.screen)
 			self.saveButton.Draw(self.screen)
+			self.RenderMenuPointer()
 		elif self.state == 3:
 			for b in self.loadSavesButtons:
 				b[0].Draw(self.screen)

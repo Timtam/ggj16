@@ -42,6 +42,7 @@ class Scene:
 		self.textSurfs = list()
 		self.currentText = 0
 		self.downIcon = pygame.transform.scale(getCommon().getUI().Icon("down"), (25, 25))
+		self.selectedChoice = 0
 		self.next = next
 		self.choices = choices
 		self.time = 0
@@ -91,7 +92,6 @@ class Scene:
 			self.textSurfs[self.currentText][4] = False
 		
 	def HandleEvent(self, event):
-		# TODO: handle keydown for skipping
 		if self.state == 0:
 			if event.type == pygame.KEYDOWN:
 				if event.key == K_SPACE or event.key == K_RETURN:
@@ -108,10 +108,20 @@ class Scene:
 								self.buttons.append(Button(c, 1, xOff, self.screen.get_height() - self.textBoxHeight - 70))
 								xOff += 240
 						else:
-							#no choise --> advance directly
+							#no choice --> advance directly
 							self.switchScene = self.next[0]
 					else:
 						self.textSurfs[self.currentText][3].Channel.Play()
+		elif self.state == 1:
+			if event.type == pygame.KEYDOWN:
+				if event.key == K_LEFT:
+					self.selectedChoice -= 1;
+				if event.key == K_RIGHT:
+					self.selectedChoice += 1;
+				if self.selectedChoice < 0: self.selectedChoice = len(self.choices) - 1
+				if self.selectedChoice >= len(self.choices): self.selectedChoice = 0
+				if event.key == K_RETURN:
+					self.switchScene = self.next[self.selectedChoice]
 			
 	def Update(self):
 		if self.state == 0:
@@ -134,3 +144,8 @@ class Scene:
 		if self.state == 1:
 			for b in self.buttons:
 				b.Draw(self.screen)
+			yOff = (time.time() * 20) % 20
+			if yOff > 10: yOff = 20 - yOff
+			y = sh - self.textBoxHeight - 120 + yOff
+			x = (sw - (240 * len(self.choices) - 50)) / 2 + self.selectedChoice * 240 + 70
+			self.screen.blit(getCommon().getUI().Icon("down"), (x, y))
