@@ -1,0 +1,23 @@
+2
+test
+test3
+Zurück
+Entscheidung B
+test1.png
+Dies ist eine weitere Szene. Sie sollte eine Entscheidung präsentieren.
+In der letzten Szene fand folgender Dialog statt:
+Buddy:  "skjdfnalfdkgjasödlkfjsödjfaäsödfjäasödjasöädjasdfasdgdasgfasdfadfsgkajdfsg
+        sdlkfhsldfjsldjflsdjflös<kdjg"
+
+Typ:    "Bla"
+
+BUddy:  "eigentlich völlig egal, was hier steht. hauptsache, genug"
+sdlkfsdf
+df
+ ewhsdsfgdfösdfäs+fdgh
+-sdf
+ fdghdfgsdfösdfässdfösdfäs
+ derf
+ dfg
+ dfgdf
+ gdfg

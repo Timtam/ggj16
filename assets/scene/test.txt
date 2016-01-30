@@ -1,0 +1,6 @@
+1
+test2
+test1.png
+Das ist ein Test.
+Diese Textbox enthält einen langen Text. Dieser Text ist mehrere
+Zeilen lang.
