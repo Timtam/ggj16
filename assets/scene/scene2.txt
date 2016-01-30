@@ -1,13 +1,13 @@
 2
-scene3_grey
+scene4
 scene3
 Grau#-2
 Blau#+2
 schrank.png
 scene2\christian_2_1.ogg
 Buddy
-    An diesem Tag merkte ich, dass ich anders bin. Wenn ich heute an die Ereignisse von damals denke, fällt mir ein weiterer
-    besonderer Tag ein. Ein paar Jahre nach dem Überfall wollte ich spazieren gehen und über alles nachdenken.
+    An diesem Tag merkte ich, dass ich anders bin. Wenn ich heute an die Ereignisse von damals denke, fÃ¤llt mir ein weiterer
+    besonderer Tag ein. Ein paar Jahre nach dem Ãœberfall wollte ich spazieren gehen und Ã¼ber alles nachdenken.
 #
 scene2\christian_2_2.ogg
 Buddy

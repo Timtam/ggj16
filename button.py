@@ -45,6 +45,7 @@ class Button:
 			
 	def Disable(self):
 		self.enabled = False
+		
 	def Enable(self):
 		self.enabled = True
 	

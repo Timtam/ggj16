@@ -1,5 +1,0 @@
-1
-scene1
-menge_grey.png
-<sound>
-Test
