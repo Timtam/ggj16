@@ -1,7 +1,7 @@
 1
 test2
 scene1.png
-scene1\toni_1_1.ogg
+scene1\toni_1_1_c2.ogg
 Bankräuber
     Ich will die Hände sehen! Alle da rüber! Und Ruhe!
 #

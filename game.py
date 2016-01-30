@@ -19,6 +19,7 @@ class MainClass:
 		self.newGameButton = Button("Neues Spiel", 1, (self.width - 190) / 2, y)
 		self.loadGameButton = Button("Spiel laden", 1, (self.width - 190) / 2, y + 100)
 		self.exitButton = Button("Beenden", 1, (self.width - 190) / 2, y + 200)
+		self.buttonIdx = 0
 		self.state = 0 # 0 - main menu, 1 - game, 2 - pause
 	
 	def MainLoop(self):
@@ -33,7 +34,22 @@ class MainClass:
 			self.Render()
 			
 	def HandleEvent(self, event):
-		if self.state == 1:
+		if self.state == 0:
+			if event.type == pygame.KEYDOWN:
+				if event.key == K_DOWN:
+					self.buttonIdx -= 1
+				if event.key == K_UP:
+					self.buttonIdx += 1
+				if self.buttonIdx < 0: self.buttonIdx = 2
+				elif self.buttonIdx > 2: self.buttonIdx = 0
+				if event.key == K_RETURN:
+					if self.buttonIdx == 0:
+						self.newGameButton.SetState(True)
+					elif self.buttonIdx == 1:
+						self.continueButton.SetState(True)
+					elif self.buttonIdx == 2:
+						self.exitButton.SetState(True)
+		elif self.state == 1:
 			if event.type == pygame.KEYDOWN:
 				if event.key == K_ESCAPE:
 					self.state = 2
@@ -56,6 +72,7 @@ class MainClass:
 			if self.exitButton.GetState():
 				sys.exit()
 			if self.newGameButton.GetState():
+				self.newGameButton.SetState(False)
 				self.currentScene = Scene.fromFile("assets\\scene\\test.txt", self.screen)
 				self.darken = pygame.Surface((self.width, self.height))
 				self.darken.fill((0, 0, 0))
