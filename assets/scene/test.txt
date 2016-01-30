@@ -1,6 +1,17 @@
 1
 test2
-test1.png
-Das ist ein Test.
-Diese Textbox enthält einen langen Text. Dieser Text ist mehrere
-Zeilen lang.
+scene1.png
+Bankräuber
+    Ich will die Hände sehen! Alle da rüber! Ruhe! Ein Wort und die Putze schiebt ne Extraschicht!
+#
+Bankier
+    OK. Ich mach ja schon...
+#
+Bankräuber
+    Auch du hältst die Klappe
+#
+Bankräuber
+    Du da! Du gehst da rüber, holst das Geld und bringst es mir! Aber so, dass ich dich sehen kann!
+#
+Buddy
+    In diesem Moment habe ich mir gewünscht, dass nicht alle Menschen so gierig wären...

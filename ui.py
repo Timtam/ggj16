@@ -3,7 +3,7 @@ from pygame.locals import *
 
 class UI:
 	def __init__(self):
-		color = "red"
+		color = "blue"
 		borderSize = 7
 		renderBorderSize = 7
 		panelSurf = pygame.image.load("assets\\ui\\bg\\" + color + "_panel.png").convert_alpha()
