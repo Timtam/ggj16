@@ -28,7 +28,7 @@ class Button:
 			mx, my = pygame.mouse.get_pos()
 			if (mx >= self.left and mx <= self.left + self.width and my >= self.top and my <= self.top + self.height):
 				self.state = 1
-				getCommon().getBass().StreamCreateFile(False, "assets\\sound\\switch26.ogg").Channel.Play()
+				getCommon().getBass().StreamCreateFile(False, "assets\\sound\\ui\\switch26.ogg").Channel.Play()
 				
 	def GetState(self):
 		return self.state == 2
