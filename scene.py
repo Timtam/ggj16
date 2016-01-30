@@ -116,9 +116,10 @@ class Scene:
 								i += 1
 								self.buttons.append(Button(c, 1, xOff, self.screen.get_height() - self.textBoxHeight - 70))
 								xOff += 240
+                                                elif len(self.next) >= 1:
+                                                        self.switchScene = self.next[0]
 						else:
-							#no choice --> advance directly
-							self.switchScene = self.next[0]
+							self.switchScene = "end"
 					else:
 						self.textSurfs[self.currentText][3].Channel.Play()
 		elif self.state == 1:
@@ -130,7 +131,9 @@ class Scene:
 				if self.selectedChoice < 0: self.selectedChoice = len(self.choices) - 1
 				if self.selectedChoice >= len(self.choices): self.selectedChoice = 0
 				if event.key == K_RETURN:
-					self.switchScene = self.next[self.selectedChoice] + "#" + self.choices[self.selectedChoice]
+					self.switchScene = self.next[self.selectedChoice]
+                                        if not self.choices[self.selectedChoice] == "":
+                                                self.switchScene += "#" + self.choices[self.selectedChoice]
 			
 	def Update(self):
 		if self.state == 0:
@@ -140,7 +143,9 @@ class Scene:
 				b = self.buttons[i]
 				b.Update()
 				if b.GetState():
-					self.switchScene = self.next[i] + "#" + self.choices[i]
+					self.switchScene = self.next[i]
+                                        if not self.choices[i] == "":
+                                                self.switchScene += "#" + self.choices[i]
 					
 	def GetNextScene(self):
 		return self.switchScene

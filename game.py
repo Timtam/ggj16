@@ -22,7 +22,7 @@ class MainClass:
                 self.loadGameButton = Button("Spiel laden", 1, (self.width - 190) / 2, y + 100)
                 self.exitButton = Button("Beenden", 1, (self.width - 190) / 2, y + 200)
                 self.buttonIdx = 0
-                self.state = 0 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game
+                self.state = 0 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits
                 
                 f = []
                 for (_,_,files) in os.walk("save\\"):
@@ -145,8 +145,28 @@ class MainClass:
                                                 self.scoreCounter += int(counter[1:])
                                         else:
                                                 self.scoreCounter -= int(counter[1:])
-                                        print(self.scoreCounter)
-                                self.LoadScene(next)
+                                if next == "end":
+                                        self.state = 5
+                                        self.creditsScroll = self.screen.get_height()
+                                        sw, sh = 0, 0
+                                        handle = open("assets\\scene\\credits.txt", "r")
+                                        lines = list()
+                                        font = getCommon().getTextFont()
+                                        for line in handle:
+                                                lines.append(line.strip())
+                                                tw, th = font.size(line.strip())
+                                                sh += th + 2
+                                                if sw < tw: sw = tw
+                                        surf = pygame.Surface((sw, sh))
+                                        sh = 0
+                                        for line in lines:
+                                                tw, th = font.size(line)
+                                                ts = font.render(line, 0, (255, 255, 255))
+                                                surf.blit(ts, ((sw - tw) / 2, sh))
+                                                sh += th + 2
+                                        self.creditsSurf = surf
+                                else:
+                                        self.LoadScene(next)
                 elif self.state == 2:
                         self.continueButton.Update()
                         self.mainMenuButton.Update()
@@ -171,6 +191,10 @@ class MainClass:
                                         print(self.scoreCounter)
                                         self.state = 1
                                         handle.close()
+                elif self.state == 5:
+                        self.creditsScroll -= 0.20
+                        if self.creditsScroll < -self.creditsSurf.get_height():
+                                self.state = 0
                                         
         def RenderMenuPointer(self):
                 xOff = (time.time() * 20) % 20
@@ -204,6 +228,8 @@ class MainClass:
                         font = getCommon().getTextFont()
                         self.screen.blit(ui.Panel(300, 80), (10, 10))
                         self.screen.blit(font.render("File: " + self.inputText, 0, (255, 255, 255)), (20, 40))
+                elif self.state == 5:
+                        self.screen.blit(self.creditsSurf, ((self.screen.get_width() - self.creditsSurf.get_width()) / 2, self.creditsScroll))
                 pygame.display.flip()
                                         
 if __name__ == "__main__":
