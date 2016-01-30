@@ -32,6 +32,12 @@ class Button:
 				
 	def GetState(self):
 		return self.state == 2
+		
+	def SetState(self, state):
+		if state:
+			self.state = 2
+		else:
+			self.state = 0
 	
 	def Draw(self, screen):
 		if self.state:
