@@ -138,6 +138,7 @@ class MainClass:
                         if self.newGameButton.GetState():
                                 self.newGameButton.SetState(False)
                                 self.LoadScene("scene1.txt")
+                                self.oldBgmStream = self.currentScene.GetBgmStream()
                                 self.scoreCounter = 0
                                 self.state = 1
                         if self.loadGameButton.GetState():
@@ -229,6 +230,8 @@ class MainClass:
                                 self.maxButtonIdx = 2
                                 self.buttonIdx = 0
                                 self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
+                                if self.oldBgmStream:
+                                        self.oldBgmStream.Channel.Stop()
                                 self.state = 0
                         if self.continueButton.GetState():
                                 self.state = 1
