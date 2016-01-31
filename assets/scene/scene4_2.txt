@@ -13,7 +13,7 @@ Umgebung
 Umgebung
     *Buddy atmet tief ein, klopft an ihre Tür und öffnet sie anschließend*
 #
-scene4/christian_4_4.ogg
+scene4/buddy_4_4.ogg
 Buddy
     Entschuldigung... ähm, ich bräuchte hier noch ein paar Unterschriften von Ihnen.
 #
@@ -25,12 +25,12 @@ Umgebung
 Umgebung
     *Die Chefin schenkt Buddy keine Aufmerksamkeit und konzentriert sich erstmal auf das Telefonat*
 #
-scene4/luise_4_1.ogg
+scene4/chef_4_1.ogg
 Chefin
     ... Ich habe heute unser angebliches "Finanzgenie" gefeuert. Schon auf dem ersten Blick habe ich gesehen, dass er eine
     absolute "Nullnummer" ist. Aber leider konnte ich ihn erst heute feuern ...
 #
-scene4/christian_4_5.ogg
+scene4/buddy_4_5_v1.ogg
 Buddy
     Meinten Sie...
 #
@@ -38,7 +38,7 @@ Buddy
 Umgebung
     *Die Chefin hält das Mikrofon des Handys zu*
 #
-scene4/luise_4_2.ogg
+scene4/chef_4_2.ogg
 Chefin
     Ja, genau diese Vollpfeife!
 #
@@ -46,7 +46,7 @@ Chefin
 Umgebung
     *Stellt sich mit dem Rücken zu Buddy an das große Panorama-Fenster*
 #
-scene4/luise_4_3.ogg
+scene4/chef_4_3.ogg
 Chefin
     Ey, Mann ohne Eigenschaften, bring mir endlich die Dokumente rüber - ich habe nicht den ganzen Tag Zeit.
 #
@@ -54,11 +54,11 @@ Chefin
 Umgebung
     *Buddy geht ihrem Befehl nach, nimmt die Dokumente und geht zu ihr ...*
 #
-scene4/christian_4_6.ogg
+scene4/buddy_4_6.ogg
 Buddy
     Äh, ich bin übrigens...
 #
-scene4/luise_4_4.ogg
+scene4/chef_4_4.ogg
 Chefin
     Interessiert mich nicht.
 #
@@ -66,10 +66,10 @@ Chefin
 Umgebung
     *Buddy gibt der Chefin die Dokumente*
 #
-scene4/luise_4_5.ogg
+scene4/chef_4_5.ogg
 Chefin
-    Ohh... Verzeihen Sie bitte. Wer waren Sie nochmal?
+    Ohh... Äh... Verzeihen Sie bitte. Wer waren Sie nochmal?
 #
-scene4/christian_4_7.ogg
+scene4/buddy_4_7.ogg
 Buddy (Gedanken)
     Damals dachte ich mir, dass ich damit doch die furchtbarsten Eigenschaften der Menschen vernichtet haben müsste...

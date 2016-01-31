@@ -4,9 +4,9 @@ scene5_2b
 vorgehen#+2
 warten#-2
 busstop.png
-buddy_5_1.ogg
+scene5\buddy_5_1.ogg
 Buddy
-    Ich fühle, dass hier und jezt der Moment kommen wird. Meine Glieder fühlen sich schwer an. Ich bin so müde.
+    Ich fühle, dass hier und jetzt der Moment kommen wird. Meine Glieder fühlen sich schwer an. Ich bin so müde.
 #
 soundTBA
 Buddy und Neid stehen an einer Bushaltestelle, keiner ist sich seiner Selbst sicher
