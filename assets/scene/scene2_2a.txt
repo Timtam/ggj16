@@ -1,6 +1,7 @@
 1
 scene3_1a
 menge.png
+:scene3.mp3
 //silence
 Umgebung
     *läuft durch Nachbarschaft*
