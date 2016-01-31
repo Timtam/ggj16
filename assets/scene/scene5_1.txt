@@ -4,7 +4,7 @@ scene5_2b
 vorgehen#+2
 warten#-2
 busstop.png
-buddy_5_1.ogg
+scene5\buddy_5_1.ogg
 Buddy
     Ich fühle, dass hier und jetzt der Moment kommen wird. Meine Glieder fühlen sich schwer an. Ich bin so müde.
 #

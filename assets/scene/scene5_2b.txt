@@ -1,5 +1,5 @@
 1
 scene5_3b
-dead_both.png
+deadboth.png
 soundTBA
 Buddy ist hinter Neid --> fühlt sich sicher genug --> umgreift Neid --> beide brechen zusammen und sterben

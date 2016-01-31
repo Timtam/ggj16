@@ -1,9 +1,10 @@
 1
 scene4_2
 zorni.png
-scene4/christian_4_1.ogg
+scene4/buddy_4_1.ogg
 Buddy
-    Seitdem habe ich keine Obdachlosen mehr gesehen. Doch da ich bald neue Sorgen hatte, vergaß ich den Stadtstreicher schnell.
+    Seitdem habe ich keine Obdachlosen mehr gesehen. Doch da ich bald neue Sorgen hatte, vergaß ich den Stadtstreicher
+    schnell.
 #
 //silence
 Umgebung
@@ -21,13 +22,13 @@ scene4/dave_4_1.ogg
 Angestellter
     Fuck! Na toll!
 #
-scene4/christian_4_2.ogg
+scene4/buddy_4_2.ogg
 Buddy
-    Was ist passiert?
+    Hey, was ist denn los? Was ist passiert?
 #
-scene4/dave_4_2.ogg
+scene4/dave_4_2_v2.ogg
 Angestellter
-    Ich wurde gefeuert! Das ist passiert! Und das Beste: OHNE EINEN beschissenen Grund! Was denk sich diese kleine Hure
+    Ich wurde gefeuert! Das ist passiert! Und das Beste: OHNE EINEN beschissenen Grund! Was denkt sich diese kleine Hure
     eigentlich, wer sie ist? Ich hab mir hier 10 Jahre lang den Arsch aufgerissen. UND FÜR WAS? Einen feuchten Händedruck und
     ein "viel Erfolg auf Ihrem weiteren Berufsweg."
 #
@@ -35,11 +36,11 @@ Angestellter
 Umgebung
     *Buddy reicht ihm die Kiste*
 #
-scene4/christian_4_3.ogg
+scene4/buddy_4_3.ogg
 Buddy
     Hey, komm, mach dir nichts draus! Immerhin kannst du dir jetzt was neues suchen.
 #
-scene4/dave_4_3.ogg
+scene4/dave_4_3_v2.ogg
 Angestellter
-    Ich hab eh keine andere Wahl und schlimmer als hier kann es eh nicht werden. Sorry, dass ich dich so angefahren habe,
-    aber jetzt geht es mir schon wesentlich besser. Danke fürs Aufheben!
+    Ich hab eh keine andere Wahl und schlimmer als hier kann es nicht werden. Sorry, dass ich dich so angefahren hab,
+    eben grad, aber jetzt geht es mir schon wesentlich besser. Danke nochmal fürs Aufheben!
