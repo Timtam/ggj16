@@ -2,8 +2,12 @@ import pygame
 import ui
 from pygame.locals import *
 from ui import *
-import Bass4Py
-from Bass4Py import *
+try:
+  import Bass4Py.Bass4Py
+  from Bass4Py.Bass4Py import *
+except ImportError:
+  import Bass4Py
+  from Bass4Py import *
 
 BGM_MAX_VOL = 0.20
 BGM_FADE_DURATION = 2
