@@ -8,3 +8,7 @@ Buddy
 scene5\neid_5_2.ogg
 Neid
     Was zur- Nein-
+#
+scene5\umfalle.wav
+Umgebung
+    *beide sacken in sich zusammen*

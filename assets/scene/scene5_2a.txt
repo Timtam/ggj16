@@ -9,3 +9,7 @@ scene5\neid_5_1.ogg
 Neid (Gedanken)
     Irgendwo an dir muss es doch noch irgendetwas zu holen geben? Wo? Wo? Ah! Da!
     Vorsichtig... Noch ein kleines Stück... HA! Danke dafür!
+#
+scene5\umfallen_1.wav
+Umgebung
+    *Buddy sackt in sich zusammen*
