@@ -9,6 +9,7 @@ from commons import *
 import button
 from button import *
 import time
+import speech
 
 class MainClass:
         def __init__(self, width=1280, height=720):
@@ -22,6 +23,8 @@ class MainClass:
                 self.loadGameButton = Button("Spiel laden", 1, (self.width - 190) / 2, y + 100)
                 self.exitButton = Button("Beenden", 1, (self.width - 190) / 2, y + 200)
                 self.buttonIdx = 0
+                self.maxButtonIdx = 2
+                self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
                 self.state = 0 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits
                 self.fadeOutStream = None
                 
@@ -47,12 +50,15 @@ class MainClass:
                         
         def MoveMenuPointer(self, event):
                 if event.type == pygame.KEYDOWN:
+                        prevIdx = self.buttonIdx
                         if event.key == K_DOWN:
                                 self.buttonIdx += 1
                         if event.key == K_UP:
                                 self.buttonIdx -= 1
-                        if self.buttonIdx < 0: self.buttonIdx = 2
-                        elif self.buttonIdx > 2: self.buttonIdx = 0
+                        if self.buttonIdx < 0: self.buttonIdx = self.maxButtonIdx
+                        elif self.buttonIdx > self.maxButtonIdx: self.buttonIdx = 0
+                        if not prevIdx == self.buttonIdx:
+                                speech.Speaker.output(self.buttonTexts[self.buttonIdx].decode(sys.getfilesystemencoding()), True)
                         
         def HandleEvent(self, event):
                 if self.state == 0:
@@ -69,9 +75,12 @@ class MainClass:
                                 if event.key == K_ESCAPE:
                                         self.state = 2
                                         self.currentScene.Pause()
+                                        speech.Speaker.output("Pausiert", True)
                                         self.continueButton = Button("Fortsetzen", 1, (self.width - 190) / 2, (self.height - 250) / 2)
                                         self.saveButton = Button("Speichern", 1, (self.width - 190) / 2, (self.height - 250) / 2 + 100)
                                         self.mainMenuButton = Button("Hauptmenü".decode("utf-8"), 1, (self.width - 190) / 2, (self.height - 250) / 2 + 200)
+                                        self.maxButtonIdx = 2
+                                        self.buttonTexts = ["Fortsetzen", "Speichern", "Hauptmenü"]
                         self.currentScene.HandleEvent(event)
                 elif self.state == 2:
                         self.MoveMenuPointer(event)
@@ -87,9 +96,12 @@ class MainClass:
                                         elif self.buttonIdx == 2:
                                                 self.mainMenuButton.SetState(True)
                 elif self.state == 3:
+                        self.MoveMenuPointer(event)
                         if event.type == pygame.KEYDOWN:
                                 if event.key == K_ESCAPE:
                                         self.state = 0
+                                if event.key == K_RETURN:
+                                        self.loadSavesButtons[self.buttonIdx][0].SetState(True)
                 elif self.state == 4:
                         if event.type == pygame.KEYDOWN:
                                 if event.key == K_ESCAPE:
@@ -127,12 +139,18 @@ class MainClass:
                                 self.state = 1
                         if self.loadGameButton.GetState():
                                 self.loadGameButton.SetState(False)
+                                speech.Speaker.output("Spielstand wählen.".decode(sys.getfilesystemencoding()), True)
                                 _,_,files = os.walk("save\\").next()
                                 self.loadSavesButtons = list()
-                                y = 10
+                                sw = self.screen.get_width()
+                                y = 20
+                                self.buttonTexts = list()
                                 for file in files:
-                                        self.loadSavesButtons.append([Button(file, 1, 10, y), file])
+                                        self.loadSavesButtons.append([Button(file, 1, (sw - 190) / 2, y), file])
+                                        self.buttonTexts.append(file)
                                         y += 60
+                                self.maxButtonIdx = len(files) - 1
+                                self.buttonIdx = 0
                                 self.state = 3
                 elif self.state == 1:
                         self.currentScene.Update()
@@ -232,10 +250,13 @@ class MainClass:
                         else:
                                 stream.Channel.SetAttribute(BASS_ATTRIB_VOL, 1 - alpha)
                                         
-        def RenderMenuPointer(self):
+        def RenderMenuPointer(self, variant = 0):
                 xOff = (time.time() * 20) % 20
                 if xOff > 10: xOff = 20 - xOff
-                y = (self.height - 250) / 2 + self.buttonIdx * 100
+                if variant:
+                        y = 20 + self.buttonIdx * 60
+                else:
+                        y = (self.height - 250) / 2 + self.buttonIdx * 100
                 self.screen.blit(getCommon().getUI().Icon("right"), ((self.width - 190) / 2 - 50 + xOff, y))
                 self.screen.blit(getCommon().getUI().Icon("left"), ((self.width + 190) / 2 - xOff, y))
                                         
@@ -259,6 +280,7 @@ class MainClass:
                 elif self.state == 3:
                         for b in self.loadSavesButtons:
                                 b[0].Draw(self.screen)
+                        self.RenderMenuPointer(1)
                 elif self.state == 4:
                         ui = getCommon().getUI()
                         font = getCommon().getTextFont()
