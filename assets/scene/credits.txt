@@ -46,12 +46,50 @@ Kenney Game Assets (CC0)
 Pygame (LGPL v3)
 Python (PSF License)
 bass (free for non-commercial use)
+nvdaControlllerClient (GPL v2)
 
 Special Thanks
 --------------
-#SSD
-#HSA
-...
-Mama
-Papa
-Speedy, der Hamster
+
+Global Game Jam 2016
+#iggj.jpg
+
+Prof. Dr. #SSD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bei der Produktion dieses Spieles wurden keine Versuche an Studenten durchgeführt.
+
+
+
+

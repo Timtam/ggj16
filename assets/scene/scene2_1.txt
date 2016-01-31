@@ -21,9 +21,9 @@ scene2\christian_2_3.ogg
 Buddy  
     Was ziehe ich heute eigentlich an?
 #
-//silence
+fx\cupboard06.wav
 Umgebung
-    *schaut auf Haufen mit Wäsche*
+    *schaut in den Kleiderschrank*
 #
 scene2\christian_2_5.ogg
 Buddy

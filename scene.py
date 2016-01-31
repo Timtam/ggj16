@@ -5,6 +5,7 @@ import button
 from button import *
 import slider
 from slider import *
+import speech
 import sys
 import time
 
@@ -73,7 +74,7 @@ class Scene:
 				height += th + 2
 				if tw > width:
 					width = tw
-			surf = [pygame.Surface((width, height), pygame.SRCALPHA), height, width, stream, False, box.strip()]
+			surf = [pygame.Surface((width, height), pygame.SRCALPHA), height, width, stream, False, '\n'.join(lines)]
 			height = 0
 			for line in lines:
 				tw, th = font.size(line)
@@ -93,7 +94,9 @@ class Scene:
                         self.bgmStream.Channel.Play()
 			
 		self.textSurfs[0][3].Channel.Play()
-		
+		if self.textSurfs[0][3].Channel.Filename.endswith("silence.mp3"):
+				speech.Speaker.output(self.textSurfs[0][5].decode(sys.getfilesystemencoding()),True)
+
 	def Pause(self):
 		try:
 			self.textSurfs[self.currentText][3].Channel.Pause()
@@ -120,6 +123,7 @@ class Scene:
 							self.buttons = list()
 							xOff = (self.screen.get_width() - (240 * len(self.choices) - 50)) / 2
 							i = 0
+                                                        self.tts = list()
 							for c in self.choices:
 								counter = ""
 								if "#" in c:
@@ -128,22 +132,33 @@ class Scene:
 									c = c[:idx]
 								self.choices[i] = counter
 								i += 1
+                                                                self.tts.append(c)
 								self.buttons.append(Button(c, 1, xOff, self.screen.get_height() - self.textBoxHeight - 70))
 								xOff += 240
+                                                        ttsStr = "Entscheide dich zwischen " + ", ".join(self.tts[:-1]) + " und " + self.tts[len(self.tts) - 1]
+                                                        #print(ttsStr)
+                                                        speech.Speaker.output(ttsStr.decode(sys.getfilesystemencoding()), True)
                                                 elif len(self.next) >= 1:
                                                         self.switchScene = self.next[0]
 						else:
 							self.switchScene = "end"
 					else:
 						self.textSurfs[self.currentText][3].Channel.Play()
+						if self.textSurfs[self.currentText][3].Channel.Filename.endswith("silence.mp3"):
+								speech.Speaker.output(self.textSurfs[self.currentText][5].decode(sys.getfilesystemencoding()),True)
+
 		elif self.state == 1:
 			if event.type == pygame.KEYDOWN:
+                                prevSelected = self.selectedChoice
 				if event.key == K_LEFT:
 					self.selectedChoice -= 1;
 				if event.key == K_RIGHT:
 					self.selectedChoice += 1;
 				if self.selectedChoice < 0: self.selectedChoice = len(self.choices) - 1
 				if self.selectedChoice >= len(self.choices): self.selectedChoice = 0
+                                if not prevSelected == self.selectedChoice:
+                                        speech.Speaker.output(self.tts[self.selectedChoice].decode(sys.getfilesystemencoding()), True)
+                                        #print(self.tts[self.selectedChoice])
 				if event.key == K_RETURN:
 					self.switchScene = self.next[self.selectedChoice]
                                         if not self.choices[self.selectedChoice] == "":
