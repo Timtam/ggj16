@@ -5,7 +5,7 @@ from ui import *
 import Bass4Py
 from Bass4Py import *
 
-BGM_MAX_VOL = 0.25
+BGM_MAX_VOL = 0.10
 
 class commons:
 	def __init__(self):

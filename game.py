@@ -27,6 +27,7 @@ class MainClass:
                 self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
                 self.state = 0 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits
                 self.fadeOutStream = None
+                self.oldBgmStream = None
                 
                 f = []
                 for (_,_,files) in os.walk("save\\"):
@@ -156,7 +157,6 @@ class MainClass:
                         self.currentScene.Update()
                         next = self.currentScene.GetNextScene()
                         if next:
-                                oldStream = self.currentScene.GetBgmStream()
                                 if "#" in next:
                                         idx = next.find("#")
                                         counter = next[(idx + 1):]
@@ -206,14 +206,17 @@ class MainClass:
                                                 creditsStream.Channel.Play()
                                         except:
                                                 print("no credits music found")
-                                        self.fadeOutStream = oldStream
+                                        self.fadeOutStream = self.oldBgmStream
                                         self.fadeOutStartTime = time.time()
                                         self.fadeOutDuration = 1
                                 else:
                                         self.LoadScene(next)
                                         newStream = self.currentScene.GetBgmStream()
                                         if newStream:
-                                                self.fadeOutStream = oldStream
+                                                if self.fadeOutStream:
+                                                        self.fadeOutStream.Channel.Stop()
+                                                self.fadeOutStream = self.oldBgmStream
+                                                self.oldBgmStream = newStream
                                                 self.fadeOutStartTime = time.time()
                                                 self.fadeOutDuration = 1
                 elif self.state == 2:
@@ -255,10 +258,10 @@ class MainClass:
                         duration = self.fadeOutDuration
                         alpha = (time.time() - start) / duration
                         if alpha > 1:
+                                self.fadeOutStream.Channel.Stop()
                                 self.fadeOutStream = None
-                                stream.Channel.Stop()
                         else:
-                                stream.Channel.SetAttribute(BASS_ATTRIB_VOL, (1 - alpha) * BGM_MAX_VOL)
+                                self.fadeOutStream.Channel.SetAttribute(BASS_ATTRIB_VOL, (1 - alpha) * BGM_MAX_VOL)
                                         
         def RenderMenuPointer(self, variant = 0):
                 xOff = (time.time() * 20) % 20
