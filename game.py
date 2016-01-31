@@ -23,6 +23,7 @@ class MainClass:
                 self.exitButton = Button("Beenden", 1, (self.width - 190) / 2, y + 200)
                 self.buttonIdx = 0
                 self.state = 0 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits
+                self.fadeOutStream = None
                 
                 f = []
                 for (_,_,files) in os.walk("save\\"):
@@ -137,6 +138,7 @@ class MainClass:
                         self.currentScene.Update()
                         next = self.currentScene.GetNextScene()
                         if next:
+                                oldStream = self.currentScene.GetBgmStream()
                                 if "#" in next:
                                         idx = next.find("#")
                                         counter = next[(idx + 1):]
@@ -165,8 +167,16 @@ class MainClass:
                                                 surf.blit(ts, ((sw - tw) / 2, sh))
                                                 sh += th + 2
                                         self.creditsSurf = surf
+                                        self.fadeOutStream = oldStream
+                                        self.fadeOutStartTime = time.time()
+                                        self.fadeOutDuration = 1
                                 else:
                                         self.LoadScene(next)
+                                        newStream = self.currentScene.GetBgmStream()
+                                        if newStream:
+                                                self.fadeOutStream = oldStream
+                                                self.fadeOutStartTime = time.time()
+                                                self.fadeOutDuration = 1
                 elif self.state == 2:
                         self.continueButton.Update()
                         self.mainMenuButton.Update()
@@ -194,6 +204,17 @@ class MainClass:
                         self.creditsScroll -= 0.20
                         if self.creditsScroll < -self.creditsSurf.get_height():
                                 self.state = 0
+                                
+                if self.fadeOutStream:
+                        stream = self.fadeOutStream
+                        start = self.fadeOutStartTime
+                        duration = self.fadeOutDuration
+                        alpha = (time.time() - start) / duration
+                        if alpha > 1:
+                                self.fadeOutStream = None
+                                stream.Channel.Stop()
+                        else:
+                                stream.Channel.SetAttribute(BASS_ATTRIB_VOL, 1 - alpha)
                                         
         def RenderMenuPointer(self):
                 xOff = (time.time() * 20) % 20

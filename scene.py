@@ -25,13 +25,17 @@ class Scene:
 			choices.append("Weiter")
 		#sound = "assets\\sound\\" + handle.readline().strip()
 		bg = "assets\\bg\\" + handle.readline().strip()
-		text = ""
+                bgm = ""
+		text = handle.readline()
+                if text[0] == ":":
+                        bgm = "assets\\sound\\music\\" + text[1:].strip()
+                        text = ""
 		for line in handle:
 			text += line
 		handle.close()
-		return Scene(screen, bg, text, next, choices)
+		return Scene(screen, bg, text, next, choices, bgm)
 		
-	def __init__(self, screen, bg, text, next, choices):
+	def __init__(self, screen, bg, text, next, choices, bgm):
 		self.screen = screen
 		sw, sh = self.screen.get_width(), self.screen.get_height()
 		try:
@@ -77,6 +81,16 @@ class Scene:
 				surf[0].blit(ts, (0, height))
 				height += th + 2
 			self.textSurfs.append(surf)
+                
+                self.bgmStream = None
+                if not bgm == "":
+                        try:
+                                self.bgmStream = bass.StreamCreateFile(False, bgm, 0, 0, BASS_SAMPLE_LOOP)
+                        except:
+                                print("load bgm failed")
+                
+                if self.bgmStream:
+                        self.bgmStream.Channel.Play()
 			
 		self.textSurfs[0][3].Channel.Play()
 		
@@ -149,6 +163,9 @@ class Scene:
 					
 	def GetNextScene(self):
 		return self.switchScene
+                
+        def GetBgmStream(self):
+                return self.bgmStream
 		
 	def Draw(self):
 		self.screen.blit(self.background, (0,0))

@@ -1,6 +1,7 @@
 1
 scene2_1
 bankueberfall.png
+:bgm.ogg
 //silence
 Umgebung
     *Schuss*
@@ -13,7 +14,7 @@ scene1\toni_1_2.ogg
 Bankräuber
     Ein Wort und die Putze schiebt ne Extraschicht!
 #
-//silence
+fx\cloth3.ogg
 Umgebung
     *wirft Beutel*
 #
