@@ -172,15 +172,16 @@ class MainClass:
                                 if next == "end":
                                         self.state = 5
                                         sw, sh = 0, 0
-                                        handle = open("assets\\scene\\credits.txt", "r")
+                                        handle = open("assets\\credits\\credits.txt", "r")
                                         lines = list()
                                         font = getCommon().getTextFont()
                                         for line in handle:
                                                 l = line.strip()
                                                 lines.append(l)
+                                                tw = th = 0
                                                 if len(l) > 0 and l[0] == '#':
                                                         if l[1] == 'i':
-                                                                isurf = pygame.image.load("assets\\credits\\" + l[2:])
+                                                                isurf = pygame.image.load("assets\\credits\\" + l[2:]).convert_alpha()
                                                                 tw, th = isurf.get_width(), isurf.get_height()
                                                 else:
                                                         tw, th = font.size(l)
@@ -192,7 +193,7 @@ class MainClass:
                                                 if len(line) > 0 and line[0] == '#':
                                                         if line[1] == 'i':
                                                                 ts = pygame.image.load("assets\\credits\\" + line[2:]).convert_alpha()
-                                                                tw, th = isurf.get_width(), isurf.get_height()
+                                                                tw, th = ts.get_width(), ts.get_height()
                                                 else:
                                                         tw, th = font.size(line)
                                                         ts = font.render(line, 0, (255, 255, 255))
