@@ -4,8 +4,7 @@ _system = platform.system()
 
 if _system == 'Windows':
  from nvda import NVDA
- from sapi5 import Sapi5
- __all__ = ["NVDA", "Sapi5"]
+ __all__ = ["NVDA"]
 elif _system == 'Darwin':
  from voiceover import VoiceOver
  __all__ = ["VoiceOver"]
