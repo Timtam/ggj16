@@ -1,7 +1,7 @@
 Credits
 -----------
 
-Voice Actor
+Voice Actors
 --------
 
 Henry Radke - Stadtstreicher
@@ -9,7 +9,7 @@ Christian Arp - Buddy
 Toni Barth - Bankräuber
 Max Haarbach - Intro
 Luise Rixrath - Chefin, Bankier, Bibliothekarin
-David Siering - Angestellter
+David Siering - Angestellter, Neid
 
 Story / Writing
 --------------
