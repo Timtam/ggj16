@@ -61,7 +61,7 @@ Licenses
 
 bass (free for non-commercial use)
 Kenney Game Assets (CC0)
-nvdaControlllerClient (GPL v2)
+nvdaControllerClient (GPL v2)
 py2exe (MIT)
 Pygame (LGPL v3)
 Python (PSF)
@@ -73,7 +73,6 @@ Python (PSF)
 
 
 Vielen Dank fürs Spielen!
-
 
 
 
