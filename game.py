@@ -58,7 +58,7 @@ class MainClass:
                         if self.buttonIdx < 0: self.buttonIdx = self.maxButtonIdx
                         elif self.buttonIdx > self.maxButtonIdx: self.buttonIdx = 0
                         if not prevIdx == self.buttonIdx:
-                                speech.Speaker.output(self.buttonTexts[self.buttonIdx].decode(sys.getfilesystemencoding()), True)
+                                speech.Speaker.output(self.buttonTexts[self.buttonIdx]), True)
                         
         def HandleEvent(self, event):
                 if self.state == 0:
@@ -80,7 +80,7 @@ class MainClass:
                                         self.saveButton = Button("Speichern", 1, (self.width - 190) / 2, (self.height - 250) / 2 + 100)
                                         self.mainMenuButton = Button("Hauptmenü".decode("utf-8"), 1, (self.width - 190) / 2, (self.height - 250) / 2 + 200)
                                         self.maxButtonIdx = 2
-                                        self.buttonTexts = ["Fortsetzen", "Speichern", "Hauptmenü"]
+                                        self.buttonTexts = ["Fortsetzen", "Speichern", "Hauptmenü".decode("utf-8")]
                         self.currentScene.HandleEvent(event)
                 elif self.state == 2:
                         self.MoveMenuPointer(event)
@@ -139,7 +139,7 @@ class MainClass:
                                 self.state = 1
                         if self.loadGameButton.GetState():
                                 self.loadGameButton.SetState(False)
-                                speech.Speaker.output("Spielstand wählen.".decode(sys.getfilesystemencoding()), True)
+                                speech.Speaker.output("Spielstand wählen.".decode("utf-8"), True)
                                 _,_,files = os.walk("save\\").next()
                                 self.loadSavesButtons = list()
                                 sw = self.screen.get_width()
@@ -147,7 +147,7 @@ class MainClass:
                                 self.buttonTexts = list()
                                 for file in files:
                                         self.loadSavesButtons.append([Button(file, 1, (sw - 190) / 2, y), file])
-                                        self.buttonTexts.append(file)
+                                        self.buttonTexts.append(file.decode(sys.getfilesystemencoding()))
                                         y += 60
                                 self.maxButtonIdx = len(files) - 1
                                 self.buttonIdx = 0
@@ -215,6 +215,9 @@ class MainClass:
                         self.mainMenuButton.Update()
                         self.saveButton.Update()
                         if self.mainMenuButton.GetState():
+                                self.maxButtonIdx = 2
+                                self.buttonIdx = 0
+                                self.buttonTexts = ["Neues Spiel", "Spiel Laden", "Beenden"]
                                 self.state = 0
                         if self.continueButton.GetState():
                                 self.state = 1
@@ -222,6 +225,7 @@ class MainClass:
                         if self.saveButton.GetState():
                                 self.saveButton.SetState(False)
                                 self.inputText = ""
+                                speech.Speaker.output("Dateinamen eingeben", True)
                                 self.state = 4
                 elif self.state == 3:
                         for b in self.loadSavesButtons:
