@@ -205,7 +205,7 @@ class MainClass:
                                         self.creditsScrollRange = self.screen.get_height() + surf.get_height()
                                         bass = getCommon().getBass()
                                         try:
-                                                creditsStream = boss.CreateStreamFile(False, "assets\\credits\\music.ogg")
+                                                creditsStream = bass.StreamCreateFile(False, "assets\\credits\\music.ogg")
                                                 creditsStream.Channel.Play()
                                         except:
                                                 print("no credits music found")
@@ -221,7 +221,7 @@ class MainClass:
                                                 self.fadeOutStream = self.oldBgmStream
                                                 self.oldBgmStream = newStream
                                                 self.fadeOutStartTime = time.time()
-                                                self.fadeOutDuration = 1
+                                                self.fadeOutDuration = BGM_FADE_DURATION
                 elif self.state == 2:
                         self.continueButton.Update()
                         self.mainMenuButton.Update()
@@ -248,7 +248,11 @@ class MainClass:
                                         b[0].SetState(False)
                                         handle = open("save\\" + b[1], "r")
                                         self.LoadScene(handle.readline().strip())
+                                        self.oldBgmStream = self.currentScene.GetBgmStream()
                                         self.scoreCounter = int(handle.readline().strip())
+                                        self.maxButtonIdx = 2
+                                        self.buttonIdx = 0
+                                        self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
                                         self.state = 1
                                         handle.close()
                 elif self.state == 5:

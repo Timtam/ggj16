@@ -6,6 +6,7 @@ import Bass4Py
 from Bass4Py import *
 
 BGM_MAX_VOL = 0.20
+BGM_FADE_DURATION = 2
 
 class commons:
 	def __init__(self):
