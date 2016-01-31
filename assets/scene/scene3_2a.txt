@@ -12,3 +12,7 @@ Umgebung
 scene3\luise_3_1.ogg
 Bibliothekarin
     Mja, nö... Keine Ahnung...
+#
+scene3\christian_3_19.ogg
+Buddy
+    Oh, nagut... dann, äh, würde ich trotzdem, gern eins kaufen.
