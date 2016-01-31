@@ -4,7 +4,7 @@ Credits
 Voice Actor
 --------
 
-Herny Radke - Stadtstreicher
+Henry Radke - Stadtstreicher
 Christian Arp - Buddy
 Toni Barth - Bankräuber
 Max Haarbach - Intro
@@ -49,3 +49,9 @@ bass (free for non-commercial use)
 
 Special Thanks
 --------------
+#SSD
+#HSA
+...
+Mama
+Papa
+Speedy, der Hamster
