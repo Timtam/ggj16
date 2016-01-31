@@ -7,7 +7,7 @@ Buddy
     Seitdem habe ich keine Obdachlosen mehr gesehen. Doch da ich bald neue Sorgen hatte, vergaﬂ ich den Stadtstreicher
     schnell.
 #
-//silence
+scene4\treppenhaus_1.ogg
 Umgebung
     *Buddy geht die Treppen des Firmengeb‰udes hoch*
 #

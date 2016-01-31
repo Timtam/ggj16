@@ -10,6 +10,6 @@ scene3\christian_3_1.ogg
 Buddy
     Ohh... Schon wieder alles in grau...
 #
-//silence
+scene2\tueroeffnen.wav
 Umgebung
     *betritt Bibliothek*

@@ -9,7 +9,7 @@ Umgebung
 Umgebung
     *Die Chefin rennt mit ihrem Handy am Ohr an Buddy vorbei und knallt ihm die Tür zum Büro der Chefin vor der Nase zu*
 #
-//silence
+scene4\klopfen_1.wav
 Umgebung
     *Buddy atmet tief ein, klopft an ihre Tür und öffnet sie anschließend*
 #
