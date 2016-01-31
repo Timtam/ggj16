@@ -1,6 +1,6 @@
 1
 scene5_3a
 deadbuddy.png
-soundTBA
-Buddy geht vor, Neid hinter ihm. Neid entdeckt Schl¸sselanh‰nger an Buddys Hose --> reiﬂt ihn an sich
-Buddy bricht in sich zusammen und stirbt
+scene5\buddy_5_3.ogg
+Buddy (Gedanken)
+    Die arme Welt. Ich hoffe, mein Nachfolger wird st‰rker sein als ich.

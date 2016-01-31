@@ -1,8 +1,5 @@
-2
-scene5_2a
-scene5_2b
-vorgehen#+2
-warten#-2
+1
+scene5_2
 busstop.png
 :scene5.mp3
 scene5\buddy_5_1.ogg
@@ -10,8 +7,9 @@ Buddy
     Ich fühle, dass hier und jetzt der Moment kommen wird. Meine Glieder fühlen sich schwer an. Ich bin so müde.
 #
 soundTBA
-Buddy und Neid stehen an einer Bushaltestelle, keiner ist sich seiner Selbst sicher
-Beide haben Angst, den ersten Schritt gegen den anderen zu wagen
+Umgebung
+    *Bus fährt ein*
 #
-soundTBA
-Bus fährt ein, was soll Buddy machen?
+scene5\buddy_5_2.ogg
+Buddy
+    Er ist hier. Ich weiß es. Er steht direkt neben mir. Egal wie ich mich entscheide, mein Schicksal ist besiegelt.

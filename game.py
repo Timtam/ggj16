@@ -22,10 +22,11 @@ class MainClass:
                 self.newGameButton = Button("Neues Spiel", 1, (self.width - 190) / 2, y)
                 self.loadGameButton = Button("Spiel laden", 1, (self.width - 190) / 2, y + 100)
                 self.exitButton = Button("Beenden", 1, (self.width - 190) / 2, y + 200)
+                self.outtakesButton = Button("Outtakes", 1, (self.width - 190) / 2, y + 300)
                 self.buttonIdx = 0
-                self.maxButtonIdx = 2
-                self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
-                self.state = 6 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits, 6 - splash
+                self.maxButtonIdx = 3
+                self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden", "Outtakes"]
+                self.state = 6 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits, 6 - splash, 7 - outtakes
                 self.fadeOutStream = None
                 self.fadeOutScene = None
                 self.oldBgmStream = None
@@ -74,6 +75,8 @@ class MainClass:
                                         self.loadGameButton.SetState(True)
                                 elif self.buttonIdx == 2:
                                         self.exitButton.SetState(True)
+                                elif self.buttonIdx == 3:
+                                        self.outtakesButton.SetState(True)
                 elif self.state == 1:
                         if event.type == pygame.KEYDOWN:
                                 if event.key == K_ESCAPE:
@@ -134,6 +137,7 @@ class MainClass:
                         self.newGameButton.Update()
                         self.loadGameButton.Update()
                         self.exitButton.Update()
+                        self.outtakesButton.Update()
                         if self.exitButton.GetState():
                                 self.stop()
                         if self.newGameButton.GetState():
@@ -157,6 +161,17 @@ class MainClass:
                                 self.maxButtonIdx = len(files) - 1
                                 self.buttonIdx = 0
                                 self.state = 3
+                        if self.outtakesButton.GetState():
+                                self.outtakesButton.SetState(False)
+                                bass = getCommon().getBass()
+                                try:
+                                        outtakeStream = bass.CreateStreamFile(False, "assets\\sound\\outtakes.ogg")
+                                        outtakeStream.Channel.Play()
+                                        self.outtakeEnd = time.time() + outtakeStream.Channel.Bytes2Seconds(outtakeStream.Channel.GetLength(BASS_POS_BYTE))
+                                        #self.outtakeEnd = time.time() + 5
+                                        self.state = 7
+                                except:
+                                        self.state = 0
                 elif self.state == 1:
                         self.currentScene.Update()
                         next = self.currentScene.GetNextScene()
@@ -169,6 +184,11 @@ class MainClass:
                                                 self.scoreCounter += int(counter[1:])
                                         else:
                                                 self.scoreCounter -= int(counter[1:])
+                                if next == "scene5_2.txt":
+                                        if self.scoreCounter <= 0:
+                                                next = "scene5_2a.txt"
+                                        else:
+                                                next = "scene5_2b.txt"
                                 if next == "end":
                                         self.state = 5
                                         sw, sh = 0, 0
@@ -233,9 +253,9 @@ class MainClass:
                         self.mainMenuButton.Update()
                         self.saveButton.Update()
                         if self.mainMenuButton.GetState():
-                                self.maxButtonIdx = 2
+                                self.maxButtonIdx = 3
                                 self.buttonIdx = 0
-                                self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
+                                self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden", "Outtakes"]
                                 if self.oldBgmStream:
                                         self.oldBgmStream.Channel.Stop()
                                 self.state = 0
@@ -256,9 +276,9 @@ class MainClass:
                                         self.LoadScene(handle.readline().strip())
                                         self.oldBgmStream = self.currentScene.GetBgmStream()
                                         self.scoreCounter = int(handle.readline().strip())
-                                        self.maxButtonIdx = 2
+                                        self.maxButtonIdx = 3
                                         self.buttonIdx = 0
-                                        self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
+                                        self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden", "Outtakes"]
                                         self.state = 1
                                         handle.close()
                 elif self.state == 5:
@@ -268,6 +288,9 @@ class MainClass:
                                 self.state = 0
                 elif self.state == 6:
                         if time.time() > self.splashEnd:
+                                self.state = 0
+                elif self.state == 7:
+                        if time.time() > self.outtakeEnd:
                                 self.state = 0
                                 
                 if self.fadeOutStream:
@@ -298,6 +321,7 @@ class MainClass:
                         self.newGameButton.Draw(self.screen)
                         self.loadGameButton.Draw(self.screen)
                         self.exitButton.Draw(self.screen)
+                        self.outtakesButton.Draw(self.screen)
                         self.RenderMenuPointer()
                 elif self.state == 1:
                         self.currentScene.Draw(self.screen)
