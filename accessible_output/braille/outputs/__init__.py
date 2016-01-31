@@ -4,9 +4,7 @@ _system = platform.system()
 
 if _system == 'Windows':
  from nvda import NVDA
- from we import WindowEyes
- from virgo import Virgo
  
- __all__ = ["NVDA", "WindowEyes","Virgo"]
+ __all__ = ["NVDA"]
 else:
  __all__ = []
