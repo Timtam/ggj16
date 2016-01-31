@@ -45,9 +45,12 @@ Special Thanks
 --------------
 
 Global Game Jam 2016
-#iggj.jpg
+#iggj.png
 
-Prof. Dr. Stefan Schlechtweg-Dorendorf #SSD
+Prof. Dr. Stefan Schlechtweg-Dorendorf
+
+Hochschule Anhalt
+#ilogo_hsa.png
 
 Licenses
 --------

@@ -25,9 +25,11 @@ class MainClass:
                 self.buttonIdx = 0
                 self.maxButtonIdx = 2
                 self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
-                self.state = 0 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits
+                self.state = 6 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits, 6 - splash
                 self.fadeOutStream = None
                 self.oldBgmStream = None
+                self.splashEnd = time.time() + 2
+                self.splash = pygame.transform.scale(pygame.image.load("assets\\ui\\splash-16by9.png"), (width, height))
                 
                 f = []
                 for (_,_,files) in os.walk("save\\"):
@@ -247,9 +249,12 @@ class MainClass:
                                         self.state = 1
                                         handle.close()
                 elif self.state == 5:
-                        alpha = (time.time() - self.creditsStartTime) / 20
+                        alpha = (time.time() - self.creditsStartTime) / 79
                         self.creditsScroll = self.creditsScrollEnd * alpha + self.creditsScrollStart * (1 - alpha)
                         if self.creditsScroll <= self.creditsScrollEnd:
+                                self.state = 0
+                elif self.state == 6:
+                        if time.time() > self.splashEnd:
                                 self.state = 0
                                 
                 if self.fadeOutStream:
@@ -301,6 +306,9 @@ class MainClass:
                         self.screen.blit(font.render("File: " + self.inputText, 0, (255, 255, 255)), (20, 40))
                 elif self.state == 5:
                         self.screen.blit(self.creditsSurf, ((self.screen.get_width() - self.creditsSurf.get_width()) / 2, self.creditsScroll))
+                elif self.state == 6:
+                        self.screen.blit(self.splash, (0,0))
+                        
                 pygame.display.flip()
                                         
 if __name__ == "__main__":
