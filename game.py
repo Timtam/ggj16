@@ -149,24 +149,39 @@ class MainClass:
                                                 self.scoreCounter -= int(counter[1:])
                                 if next == "end":
                                         self.state = 5
-                                        self.creditsScroll = self.screen.get_height()
                                         sw, sh = 0, 0
                                         handle = open("assets\\scene\\credits.txt", "r")
                                         lines = list()
                                         font = getCommon().getTextFont()
                                         for line in handle:
-                                                lines.append(line.strip())
-                                                tw, th = font.size(line.strip())
+                                                l = line.strip()
+                                                lines.append(l)
+                                                if len(l) > 0 and l[0] == '#':
+                                                        if l[1] == 'i':
+                                                                isurf = pygame.image.load("assets\\credits\\" + l[2:])
+                                                                tw, th = isurf.get_width(), isurf.get_height()
+                                                else:
+                                                        tw, th = font.size(l)
                                                 sh += th + 2
                                                 if sw < tw: sw = tw
                                         surf = pygame.Surface((sw, sh))
                                         sh = 0
                                         for line in lines:
-                                                tw, th = font.size(line)
-                                                ts = font.render(line, 0, (255, 255, 255))
+                                                if len(line) > 0 and line[0] == '#':
+                                                        if line[1] == 'i':
+                                                                ts = pygame.image.load("assets\\credits\\" + line[2:]).convert_alpha()
+                                                                tw, th = isurf.get_width(), isurf.get_height()
+                                                else:
+                                                        tw, th = font.size(line)
+                                                        ts = font.render(line, 0, (255, 255, 255))
                                                 surf.blit(ts, ((sw - tw) / 2, sh))
                                                 sh += th + 2
                                         self.creditsSurf = surf
+                                        self.creditsStartTime = time.time()
+                                        self.creditsScrollStart = self.screen.get_height()
+                                        self.creditsScroll = self.creditsScrollStart
+                                        self.creditsScrollEnd = -surf.get_height()
+                                        self.creditsScrollRange = self.screen.get_height() + surf.get_height()
                                         self.fadeOutStream = oldStream
                                         self.fadeOutStartTime = time.time()
                                         self.fadeOutDuration = 1
@@ -201,8 +216,9 @@ class MainClass:
                                         self.state = 1
                                         handle.close()
                 elif self.state == 5:
-                        self.creditsScroll -= 0.20
-                        if self.creditsScroll < -self.creditsSurf.get_height():
+                        alpha = (time.time() - self.creditsStartTime) / 20
+                        self.creditsScroll = self.creditsScrollEnd * alpha + self.creditsScrollStart * (1 - alpha)
+                        if self.creditsScroll <= self.creditsScrollEnd:
                                 self.state = 0
                                 
                 if self.fadeOutStream:
