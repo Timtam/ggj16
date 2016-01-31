@@ -1,5 +1,6 @@
 1
 scene5_3b
 deadboth.png
-soundTBA
-Buddy ist hinter Neid --> fühlt sich sicher genug --> umgreift Neid --> beide brechen zusammen und sterben
+scene5\buddy_5_4.ogg
+Buddy
+    Es ist getan, doch nicht vorbei. Die Welt strahlt im hellen Glanz der Farben. Doch der Frieden wird nur von kurzer Dauer sein.
