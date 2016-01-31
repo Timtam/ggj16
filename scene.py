@@ -5,6 +5,7 @@ import button
 from button import *
 import slider
 from slider import *
+import speech
 import sys
 import time
 
@@ -73,7 +74,7 @@ class Scene:
 				height += th + 2
 				if tw > width:
 					width = tw
-			surf = [pygame.Surface((width, height), pygame.SRCALPHA), height, width, stream, False, box.strip()]
+			surf = [pygame.Surface((width, height), pygame.SRCALPHA), height, width, stream, False, '\n'.join(lines)]
 			height = 0
 			for line in lines:
 				tw, th = font.size(line)
@@ -93,7 +94,9 @@ class Scene:
                         self.bgmStream.Channel.Play()
 			
 		self.textSurfs[0][3].Channel.Play()
-		
+		if self.textSurfs[0][3].Channel.Filename.endswith("silence.mp3"):
+				speech.Speaker.output(self.textSurfs[0][5].decode(sys.getfilesystemencoding()),True)
+
 	def Pause(self):
 		try:
 			self.textSurfs[self.currentText][3].Channel.Pause()
@@ -136,6 +139,9 @@ class Scene:
 							self.switchScene = "end"
 					else:
 						self.textSurfs[self.currentText][3].Channel.Play()
+						if self.textSurfs[self.currentText][3].Channel.Filename.endswith("silence.mp3"):
+								speech.Speaker.output(self.textSurfs[self.currentText][5].decode(sys.getfilesystemencoding()),True)
+
 		elif self.state == 1:
 			if event.type == pygame.KEYDOWN:
 				if event.key == K_LEFT:
