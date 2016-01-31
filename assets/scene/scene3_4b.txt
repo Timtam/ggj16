@@ -83,7 +83,7 @@ Buddy
 #
 //silence
 Umgebung
-    *Buddy reicht dem Landstreicher einen Teller*
+    *Buddy reicht dem Stadtstreicher einen Teller*
 #
 //silence
 Umgebung
