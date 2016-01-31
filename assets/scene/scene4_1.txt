@@ -1,6 +1,7 @@
 1
 scene4_2
 zorni.png
+:scene4.mp3
 scene4/buddy_4_1.ogg
 Buddy
     Seitdem habe ich keine Obdachlosen mehr gesehen. Doch da ich bald neue Sorgen hatte, vergaﬂ ich den Stadtstreicher
