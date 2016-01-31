@@ -164,14 +164,10 @@ class MainClass:
                         if self.outtakesButton.GetState():
                                 self.outtakesButton.SetState(False)
                                 bass = getCommon().getBass()
-                                try:
-                                        outtakeStream = bass.CreateStreamFile(False, "assets\\sound\\outtakes.ogg")
-                                        outtakeStream.Channel.Play()
-                                        self.outtakeEnd = time.time() + outtakeStream.Channel.Bytes2Seconds(outtakeStream.Channel.GetLength(BASS_POS_BYTE))
-                                        #self.outtakeEnd = time.time() + 5
-                                        self.state = 7
-                                except:
-                                        self.state = 0
+                                outtakeStream = bass.StreamCreateFile(False, "assets\\sound\\outtakes.ogg")
+                                outtakeStream.Channel.Play()
+                                self.outtakeEnd = time.time() + outtakeStream.Channel.Bytes2Seconds(outtakeStream.Channel.GetLength(BASS_POS_BYTE))
+                                self.state = 7
                 elif self.state == 1:
                         self.currentScene.Update()
                         next = self.currentScene.GetNextScene()

@@ -1,6 +1,6 @@
-No Budd's Grey
+No Buddy's Grey
 
-A Global GAme Jam project, developed in 2016
+A Global Game Jam project, developed in 2016
 
 Dependencies:
 
