@@ -24,11 +24,12 @@ Erik Tauchert
 Christian Arp
 Toni Barth
 
-Soundrecording/-design
+Soundrecording / -design
 ----------------------
 
 Toni Barth
 Max Haarbach
+Christian Arp
 
 Artist
 ------
@@ -39,6 +40,15 @@ Audio Artist
 ----------------
 
 
+
+Special Thanks
+--------------
+
+Global Game Jam 2016
+#iggj.jpg
+
+Prof. Dr. Stefan Schlechtweg-Dorendorf #SSD
+
 Licenses
 --------
 
@@ -48,21 +58,12 @@ Python (PSF License)
 bass (free for non-commercial use)
 nvdaControlllerClient (GPL v2)
 
-Special Thanks
---------------
-
-Global Game Jam 2016
-#iggj.jpg
-
-Prof. Dr. #SSD
 
 
 
 
 
-
-
-
+Vielen Dank fürs Spielen!
 
 
 

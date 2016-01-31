@@ -58,7 +58,7 @@ class MainClass:
                         if self.buttonIdx < 0: self.buttonIdx = self.maxButtonIdx
                         elif self.buttonIdx > self.maxButtonIdx: self.buttonIdx = 0
                         if not prevIdx == self.buttonIdx:
-                                speech.Speaker.output(self.buttonTexts[self.buttonIdx]), True)
+                                speech.Speaker.output(self.buttonTexts[self.buttonIdx], True)
                         
         def HandleEvent(self, event):
                 if self.state == 0:
