@@ -250,6 +250,9 @@ class MainClass:
                                         self.LoadScene(handle.readline().strip())
                                         self.oldBgmStream = self.currentScene.GetBgmStream()
                                         self.scoreCounter = int(handle.readline().strip())
+                                        self.maxButtonIdx = 2
+                                        self.buttonIdx = 0
+                                        self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
                                         self.state = 1
                                         handle.close()
                 elif self.state == 5:
