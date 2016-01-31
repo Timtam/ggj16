@@ -1,6 +1,0 @@
-1
-scene9
-bebi.png
-scene3\christian_3_1.ogg
-Buddy
-    *Szene7*

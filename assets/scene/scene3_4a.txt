@@ -1,0 +1,74 @@
+1
+scene4_1
+hobo_blau.png
+scene3\christian_3_8.ogg
+Buddy
+    Hallo?
+#
+scene3\christian_3_9.ogg
+Buddy
+    Was machst du hier?
+#
+scene3\henry_3_1.ogg
+Stadtstreicher
+    Ich sitz hier nur rum.
+#
+scene3\christian_3_10.ogg
+Buddy
+    Und wieso?
+#
+scene3\henry_3_2.ogg
+Stadtstreicher
+    Wo anders war kein Platz frei und hier ist es ruhig.
+#
+scene3\christian_3_11.ogg
+Buddy
+    Hey, liest du gerne? Ich war heute in der Bibliothek.
+#
+scene3\henry_3_3.ogg
+Stadtstreicher
+    Das kann ich mir gar nicht leisten.
+#
+scene3\christian_3_12.ogg
+Buddy
+    Wie bist du denn in diese Situation geraten?
+#
+scene3\henry_3_4.ogg
+Stadtstreicher
+    Ich wusste nicht genau, wo hin mit mir.
+#
+scene3\christian_3_13.ogg
+Buddy
+    Mir wurde sofort bewusst, was diesem Mann widerfahren war, woran er litt: Er war total antriebslos.
+#
+scene3\christian_3_14.ogg
+Buddy
+    Weißt du was? Komm mit. Da hinten ist ein Imbissstand.
+#
+scene3\henry_3_5.ogg
+Stadtstreicher
+    Na gut, mach ich halt mit...
+#
+scene3\christian_3_15.ogg
+Buddy
+    Na komm schon!
+#
+scene3\henry_3_6.ogg
+Stadtstreicher
+    Na gut.
+#
+scene3\christian_3_16.ogg
+Buddy
+    Was möchtest du essen?
+#
+scene3\henry_3_7.ogg
+Stadtstreicher
+    Das, was du nimmst.
+#
+scene3\christian_3_17.ogg
+Buddy
+    Na gut. Dann hätten wir gern zwei Teller Nudeln bitte.
+#
+scene3\henry_3_8.ogg
+Stadtstreicher
+    Ich hab gehört, die suchen noch einen Ladengehilfen 3 Straßen von hier. Ich geh mal nachher dort vorbei.

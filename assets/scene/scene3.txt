@@ -1,6 +1,0 @@
-1
-scene5
-menge.png
-scene3\christian_3_1.ogg
-Buddy
-    Wieder alles in grau.

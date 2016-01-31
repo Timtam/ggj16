@@ -1,0 +1,10 @@
+1
+scene3_3a
+bebi.png
+scene3\christian_3_4.ogg
+Buddy
+    Wen von den Beiden würden Sie mir empfehlen?
+#
+scene3\luise_3_1.ogg
+Bibliothekarin
+    Mja, nö... Keine Ahnung...

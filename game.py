@@ -188,7 +188,6 @@ class MainClass:
                                         handle = open("save\\" + b[1], "r")
                                         self.LoadScene(handle.readline().strip())
                                         self.scoreCounter = int(handle.readline().strip())
-                                        print(self.scoreCounter)
                                         self.state = 1
                                         handle.close()
                 elif self.state == 5:

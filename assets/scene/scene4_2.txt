@@ -1,0 +1,40 @@
+1
+scene5_1
+bitch.png
+soundTBA
+Buddy
+    Verzeihung, Ma'am, ich brauche noch Ihre Unterschrift.
+#
+soundTBA
+Chefin
+    ... Ich habe heute unser angebliches "Finanzgenie" gefeuert. Schon auf dem ersten Blick habe ich gesehen, dass er eine
+    absolute "Nullnummer" ist. Aber leider konnte ich ihn erst heute feuern...
+#
+soundTBA
+Buddy
+    Meinten Sie...
+#
+soundTBA
+Chefin
+    Ja, genau diese Vollpfeife!
+#
+soundTBA
+Chefin
+    Ey, Mann ohne Eigenschaften, bring mir endlich die Dokumente rüber - ich habe nicht den ganzen Tag Zeit.
+#
+soundTBA
+Buddy
+    Äh, ich bin übrigens...
+#
+soundTBA
+Chefin
+    Interessiert mich nicht.
+#
+soundTBA
+Chefin
+    Ohh... Verzeihen Sie bitte. Wer waren Sie nochmal?
+#
+soundTBA
+Buddy
+    "Damit müssten doch die furchtbarsten Eigenschaften der Menschen vernichtet worden sein." hatte ich gedacht. Doch eine
+    war noch da. Dabei wurde ich immer schwächer.

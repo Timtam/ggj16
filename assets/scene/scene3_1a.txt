@@ -1,0 +1,10 @@
+2
+scene3_2a
+scene3_3a
+reden#+2
+nicht reden#-2
+bebi.png
+scene3\christian_3_2.ogg
+Buddy
+    An diesem Tag waren besonders wenige Menschen unterwegs. Ich stand vor einem Regal, gefüllt mit Gedichtbänden von
+    Poe und Hesse.

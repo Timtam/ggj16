@@ -1,0 +1,9 @@
+2
+scene5_2a
+scene5_2b
+vorgehen#+2
+warten#-2
+busstop.png
+soundTBA
+Buddy
+    Ich fühle, dass hier und jezt der Moment kommen wird. Meine Glieder fühlen sich schwer an. Ich bin so müde.

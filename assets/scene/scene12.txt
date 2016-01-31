@@ -1,6 +1,0 @@
-1
-scene13
-zorni.png
-scene3\christian_3_1.ogg
-Buddy
-    *Szene12*

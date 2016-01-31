@@ -1,9 +1,0 @@
-2
-scene15
-scene16
-vorgehen#+2
-warten#-2
-park.png
-scene3\christian_3_1.ogg
-Buddy
-    *Szene14*

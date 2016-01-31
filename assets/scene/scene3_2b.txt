@@ -1,0 +1,10 @@
+1
+scene3_3b
+bebi.png
+scene3\christian_3_5.ogg
+Buddy
+    Die kannte ich noch gar nicht. Können Sie mir die empfehlen?
+#
+scene3\luise_3_2.ogg
+Bibliothekarin
+    Kann ich nicht empfehlen.

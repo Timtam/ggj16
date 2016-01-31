@@ -1,6 +1,0 @@
-1
-scene18
-park.png
-scene3\christian_3_1.ogg
-Buddy
-    *Szene16*

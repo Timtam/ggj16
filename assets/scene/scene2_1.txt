@@ -1,0 +1,30 @@
+2
+scene2_2b
+scene2_2a
+Grau#-2
+Blau#+2
+schrank.png
+scene2\christian_2_1.ogg
+Buddy
+    An diesem Tag merkte ich, dass ich anders bin. Wenn ich heute an die Ereignisse von damals denke, fällt mir ein weiterer
+    besonderer Tag ein. Ein paar Jahre nach dem Überfall wollte ich spazieren gehen und über alles nachdenken.
+#
+scene2\christian_2_2.ogg
+Buddy
+    Ach Mist!
+#
+scene2\christian_2_3.ogg
+Buddy  
+    Was ziehe ich heute eigentlich an?
+#
+scene2\christian_2_4.ogg
+Buddy
+    Hm... Ich glaube, ich habe sowieso nur noch zwei saubere T-Shirts...
+#
+scene2\christian_2_5.ogg
+Buddy
+    Hm. Sind sowieso nur noch zwei saubere T-Shirts da. Da habe ich ja 'ne Riesenauswahl.
+#
+scene2\christian_2_6.ogg
+Buddy
+    OK, blau oder grau?
