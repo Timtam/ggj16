@@ -258,7 +258,7 @@ class MainClass:
                                 self.fadeOutStream = None
                                 stream.Channel.Stop()
                         else:
-                                stream.Channel.SetAttribute(BASS_ATTRIB_VOL, 1 - alpha)
+                                stream.Channel.SetAttribute(BASS_ATTRIB_VOL, (1 - alpha) * BGM_MAX_VOL)
                                         
         def RenderMenuPointer(self, variant = 0):
                 xOff = (time.time() * 20) % 20
