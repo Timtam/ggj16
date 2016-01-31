@@ -39,6 +39,10 @@ David Siering
 Audio Artist
 ----------------
 
+Recording and Mixing: Toni Barth, Max Haarbach
+Royalty free music from:
+    Michael Donner: http://www.michael-donner-music.de
+    Kevin McLeod: http://www.incompetech.com/
 
 
 Special Thanks
@@ -55,11 +59,13 @@ Hochschule Anhalt
 Licenses
 --------
 
-Kenney Game Assets (CC0)
-Pygame (LGPL v3)
-Python (PSF License)
 bass (free for non-commercial use)
+Kenney Game Assets (CC0)
 nvdaControlllerClient (GPL v2)
+py2exe (MIT)
+Pygame (LGPL v3)
+Python (PSF)
+
 
 
 
