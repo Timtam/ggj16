@@ -1,30 +1,45 @@
 1
 scene4_2
 zorni.png
-soundTBA
+scene4/christian_4_1.ogg
 Buddy
-    Ich habe nie wieder Obdachlose gesehen. Da bald eine neue Sorge mich umhertrieb, vergaß ich den Stadtstreicher aber
-    wieder.
+    Seitdem habe ich keine Obdachlosen mehr gesehen. Doch da ich bald neue Sorgen hatte, vergaß ich den Stadtstreicher schnell.
 #
-soundTBA
+//silence
+Umgebung
+    *Buddy geht die Treppen des Firmengebäudes hoch*
+#
+//silence
+Umgebung
+    *Sein sichtbar wütender Arbeitskollege kommt ihm mit einer Kiste voller Büroartikel entgegen*
+#
+//silence
+Umgebung
+    *Buddy und sein Arbeitskollege prallen zusammen*
+#
+scene4/dave_4_1.ogg
 Angestellter
     Fuck! Na toll!
 #
-soundTBA
+scene4/christian_4_2.ogg
 Buddy
     Was ist passiert?
 #
-soundTBA
+scene4/dave_4_2.ogg
 Angestellter
     Ich wurde gefeuert! Das ist passiert! Und das Beste: OHNE EINEN beschissenen Grund! Was denk sich diese kleine Hure
-    eigentlich, wer sie ist? Ich hab mir hier 10 Jahre den Arsch aufgerissen. UND FÜR WAS? Einen feuchten Händedruck und
+    eigentlich, wer sie ist? Ich hab mir hier 10 Jahre lang den Arsch aufgerissen. UND FÜR WAS? Einen feuchten Händedruck und
     ein "viel Erfolg auf Ihrem weiteren Berufsweg."
 #
-soundTBA
-Buddy
-    Hier, bitte sehr. Gräme dich nicht. Zumindest kannst du dir jetzt was besseres suchen.
+//silence
+Umgebung
+    *Buddy reicht ihm die Kiste*
 #
-soundTBA
+scene4/christian_4_3.ogg
+Buddy
+    Hey, komm, mach dir nichts draus! Immerhin kannst du dir jetzt was neues suchen.
+#
+scene4/dave_4_3.ogg
 Angestellter
     Ich hab eh keine andere Wahl und schlimmer als hier kann es eh nicht werden. Sorry, dass ich dich so angefahren habe,
-    aber jetzt geht es mir schon besser. Danke fürs Aufheben.
+    aber jetzt geht es mir schon wesentlich besser. Danke fürs Aufheben!

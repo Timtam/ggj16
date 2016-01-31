@@ -1,6 +1,10 @@
 1
 scene3_1b
 menge_grey.png
-scene3\christian_3_1.ogg
-Buddy
-    TBA
+//silence
+Umgebung
+    *läuft durch Nachbarschaft*
+#
+//silence
+Umgebung
+	*betritt Bibliothek*

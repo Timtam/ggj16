@@ -5,7 +5,15 @@ scene3\christian_3_6.ogg
 Buddy
     In der Bibliothek war es so staubig und einsam. Gott sei Dank, konnte ich dem damals entfliehen und ging in den Park.
 #
+//silence
+Umgebung
+    *Naturgeräusche*
+#
 scene3\christian_3_7.ogg
 Buddy
     Es war immer so schön hell, warm und lebendig im Park. Fast jeder, der dort war, war für eine sehr kurze Zeit ein
     anderer, ein besserer Mensch.
+#
+//silence
+Umgebung
+    *Stadtstreicher fällt auf*

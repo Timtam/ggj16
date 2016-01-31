@@ -5,6 +5,10 @@ scene3\christian_3_5.ogg
 Buddy
     Die kannte ich noch gar nicht. Können Sie mir die empfehlen?
 #
+//silence
+Umgebung
+    *bringt ein Buch von Terry Pratchett zum Schalter*
+#
 scene3\luise_3_2.ogg
 Bibliothekarin
     Kann ich nicht empfehlen.

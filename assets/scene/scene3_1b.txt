@@ -4,6 +4,10 @@ scene3_3b
 reden#+2
 nicht reden#-2
 bebi.png
+//silence
+Umgebung
+    *befindet sich in der Sci-Fi-Fantasy-Abteilung*
+#
 scene3\christian_3_3.ogg
 Buddy
     So viele schöne Bücher, mit außergewöhnlichen, faszinierenden Welten, witzigen bis coolen Helden. Und wo stehen die

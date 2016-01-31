@@ -3,6 +3,10 @@ scene4_1
 hobo_blau.png
 scene3\christian_3_8.ogg
 Buddy
+    Hallo.
+#
+//TBA
+Stadtstreicher
     Hallo?
 #
 scene3\christian_3_9.ogg
@@ -53,9 +57,17 @@ scene3\christian_3_15.ogg
 Buddy
     Na komm schon!
 #
+//silence
+Umgebung
+    *Buddy stößt ihn an*
+#
 scene3\henry_3_6.ogg
 Stadtstreicher
     Na gut.
+#
+//silence
+Umgebung
+    *gehen gemeinsam zum Imbissstand*
 #
 scene3\christian_3_16.ogg
 Buddy
@@ -68,6 +80,22 @@ Stadtstreicher
 scene3\christian_3_17.ogg
 Buddy
     Na gut. Dann hätten wir gern zwei Teller Nudeln bitte.
+#
+//silence
+Umgebung
+    *Buddy reicht dem Landstreicher einen Teller*
+#
+//silence
+Umgebung
+    *beide essen gemeinsam*
+#
+//silence
+Umgebung
+    *Stadtstreicher wirkt nicht mehr antriebslos*
+#
+//silence
+Umgebung
+    *Das Essen fällt Buddy schwerer*
 #
 scene3\henry_3_8.ogg
 Stadtstreicher

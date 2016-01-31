@@ -1,40 +1,75 @@
 1
 scene5_1
 bitch.png
-soundTBA
-Buddy
-    Verzeihung, Ma'am, ich brauche noch Ihre Unterschrift.
+//silence
+Umgebung
+    *Buddy muss mit einigen Dokumenten in das Büro seiner Chefin*
 #
-soundTBA
+//silence
+Umgebung
+    *Die Chefin rennt mit ihrem Handy am Ohr an Buddy vorbei und knallt ihm die Tür zum Büro der Chefin vor der Nase zu*
+#
+//silence
+Umgebung
+    *Buddy atmet tief ein, klopft an ihre Tür und öffnet sie anschließend*
+#
+scene4/christian_4_4.ogg
+Buddy
+    Entschuldigung... ähm, ich bräuchte hier noch ein paar Unterschriften von Ihnen.
+#
+//silence
+Umgebung
+    *Buddy legt die Dokumente auf ihrem Tisch ab*
+#
+//silence
+Umgebung
+    *Die Chefin schenkt Buddy keine Aufmerksamkeit und konzentriert sich erstmal auf das Telefonat*
+#
+scene4/luise_4_1.ogg
 Chefin
     ... Ich habe heute unser angebliches "Finanzgenie" gefeuert. Schon auf dem ersten Blick habe ich gesehen, dass er eine
-    absolute "Nullnummer" ist. Aber leider konnte ich ihn erst heute feuern...
+    absolute "Nullnummer" ist. Aber leider konnte ich ihn erst heute feuern ...
 #
-soundTBA
+scene4/christian_4_5.ogg
 Buddy
     Meinten Sie...
 #
-soundTBA
+//silence
+Umgebung
+    *Die Chefin hält das Mikrofon des Handys zu*
+#
+scene4/luise_4_2.ogg
 Chefin
     Ja, genau diese Vollpfeife!
 #
-soundTBA
+//silence
+Umgebung
+    *Stellt sich mit dem Rücken zu Buddy an das große Panorama-Fenster*
+#
+scene4/luise_4_3.ogg
 Chefin
     Ey, Mann ohne Eigenschaften, bring mir endlich die Dokumente rüber - ich habe nicht den ganzen Tag Zeit.
 #
-soundTBA
+//silence
+Umgebung
+    *Buddy geht ihrem Befehl nach, nimmt die Dokumente und geht zu ihr ...*
+#
+scene4/christian_4_6.ogg
 Buddy
     Äh, ich bin übrigens...
 #
-soundTBA
+scene4/luise_4_4.ogg
 Chefin
     Interessiert mich nicht.
 #
-soundTBA
+//silence
+Umgebung
+    *Buddy gibt der Chefin die Dokumente*
+#
+scene4/luise_4_5.ogg
 Chefin
     Ohh... Verzeihen Sie bitte. Wer waren Sie nochmal?
 #
-soundTBA
-Buddy
-    "Damit müssten doch die furchtbarsten Eigenschaften der Menschen vernichtet worden sein." hatte ich gedacht. Doch eine
-    war noch da. Dabei wurde ich immer schwächer.
+scene4/christian_4_7.ogg
+Buddy (Gedanken)
+    Damals dachte ich mir, dass ich damit doch die furchtbarsten Eigenschaften der Menschen vernichtet haben müsste...

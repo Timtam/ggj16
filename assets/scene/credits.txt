@@ -1,25 +1,51 @@
-Mitwirkende
+Credits
 -----------
 
-Sprecher
+Voice Actor
 --------
 
-Herny - Landstreicher
-Christian - Buddy
-Tony - Bankräuber
-Max - Intro, Neid
-Luise - Chef, Bankangestellte, kann ich nicht lesen
-Dave - Angestellter
+Herny Radke - Stadtstreicher
+Christian Arp - Buddy
+Toni Barth - Bankräuber
+Max Haarbach - Intro
+Luise Rixrath - Chefin, Bankier, Bibliothekarin
+David Siering - Angestellter
 
 Story / Writing
 --------------
 
-Luise
-Henry
+Luise Rixrath
+Henry Radke
 
-Programmierer
+Programmer
 -------------
 
-Erik
-Christian
-Tony
+Erik Tauchert
+Christian Arp
+Toni Barth
+
+Soundrecording/-design
+----------------------
+
+Toni Barth
+Max Haarbach
+
+Artist
+------
+
+David Siering
+
+Audio Artist
+----------------
+
+
+Licenses
+--------
+
+Kenney Game Assets (CC0)
+Pygame (LGPL v3)
+Python (PSF License)
+bass (free for non-commercial use)
+
+Special Thanks
+--------------
