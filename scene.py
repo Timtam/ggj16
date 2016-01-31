@@ -167,9 +167,10 @@ class Scene:
                                                 self.switchScene += "#" + self.choices[self.selectedChoice]
 			
 	def Update(self):
-                alpha = (time.time() - self.bgmStartTime) / BGM_FADE_DURATION
-                if alpha > 1: alpha = 1
-                self.bgmStream.Channel.SetAttribute(BASS_ATTRIB_VOL, BGM_MAX_VOL * alpha)
+                if self.bgmStream:
+                        alpha = (time.time() - self.bgmStartTime) / BGM_FADE_DURATION
+                        if alpha > 1: alpha = 1
+                        self.bgmStream.Channel.SetAttribute(BASS_ATTRIB_VOL, BGM_MAX_VOL * alpha)
                 
 		if self.state == 0:
 			return
@@ -188,16 +189,16 @@ class Scene:
         def GetBgmStream(self):
                 return self.bgmStream
 		
-	def Draw(self):
-		self.screen.blit(self.background, (0,0))
-		sw, sh = self.screen.get_width(), self.screen.get_height()
-		self.screen.blit(getCommon().getUI().Panel(sw - 20, self.textBoxHeight), (10, sh - self.textBoxHeight - 10))
-		self.screen.blit(self.textSurfs[self.currentText][0], (20, sh - self.textBoxHeight))
-		if self.state == 1:
+	def Draw(self, target):
+		target.blit(self.background, (0,0))
+		sw, sh = target.get_width(), self.screen.get_height()
+		target.blit(getCommon().getUI().Panel(sw - 20, self.textBoxHeight), (10, sh - self.textBoxHeight - 10))
+		target.blit(self.textSurfs[self.currentText][0], (20, sh - self.textBoxHeight))
+		if self.state == 1 and len(self.next) > 1:
 			for b in self.buttons:
-				b.Draw(self.screen)
+				b.Draw(target)
 			yOff = (time.time() * 20) % 20
 			if yOff > 10: yOff = 20 - yOff
 			y = sh - self.textBoxHeight - 120 + yOff
 			x = (sw - (240 * len(self.choices) - 50)) / 2 + self.selectedChoice * 240 + 70
-			self.screen.blit(getCommon().getUI().Icon("down"), (x, y))
+			target.blit(getCommon().getUI().Icon("down"), (x, y))

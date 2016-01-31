@@ -27,6 +27,7 @@ class MainClass:
                 self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
                 self.state = 6 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits, 6 - splash
                 self.fadeOutStream = None
+                self.fadeOutScene = None
                 self.oldBgmStream = None
                 self.splashEnd = time.time() + 2
                 self.splash = pygame.transform.scale(pygame.image.load("assets\\ui\\splash-16by9.png"), (width, height))
@@ -210,9 +211,13 @@ class MainClass:
                                         except:
                                                 print("no credits music found")
                                         self.fadeOutStream = self.oldBgmStream
-                                        self.fadeOutStartTime = time.time()
-                                        self.fadeOutDuration = 1
+                                        self.fadeOutStreamStartTime = time.time()
+                                        self.fadeOutStreamDuration = 1
                                 else:
+                                        self.fadeOutScene = pygame.Surface((self.width, self.height))
+                                        self.fadeOutSceneStartTime = time.time()
+                                        self.fadeOutSceneDuration = 1
+                                        self.currentScene.Draw(self.fadeOutScene)
                                         self.LoadScene(next)
                                         newStream = self.currentScene.GetBgmStream()
                                         if newStream:
@@ -220,8 +225,8 @@ class MainClass:
                                                         self.fadeOutStream.Channel.Stop()
                                                 self.fadeOutStream = self.oldBgmStream
                                                 self.oldBgmStream = newStream
-                                                self.fadeOutStartTime = time.time()
-                                                self.fadeOutDuration = BGM_FADE_DURATION
+                                                self.fadeOutStreamStartTime = time.time()
+                                                self.fadeOutStreamDuration = BGM_FADE_DURATION
                 elif self.state == 2:
                         self.continueButton.Update()
                         self.mainMenuButton.Update()
@@ -266,8 +271,8 @@ class MainClass:
                                 
                 if self.fadeOutStream:
                         stream = self.fadeOutStream
-                        start = self.fadeOutStartTime
-                        duration = self.fadeOutDuration
+                        start = self.fadeOutStreamStartTime
+                        duration = self.fadeOutStreamDuration
                         alpha = (time.time() - start) / duration
                         if alpha > 1:
                                 self.fadeOutStream.Channel.Stop()
@@ -294,9 +299,15 @@ class MainClass:
                         self.exitButton.Draw(self.screen)
                         self.RenderMenuPointer()
                 elif self.state == 1:
-                        self.currentScene.Draw()
+                        self.currentScene.Draw(self.screen)
+                        if self.fadeOutScene:
+                                alpha = 1 - ((time.time() - self.fadeOutSceneStartTime) / self.fadeOutSceneDuration)
+                                self.fadeOutScene.set_alpha(255 * alpha)
+                                self.screen.blit(self.fadeOutScene, (0, 0))
+                                if alpha < 0:
+                                        self.fadeOutScene = None
                 elif self.state == 2:
-                        self.currentScene.Draw()
+                        self.currentScene.Draw(self.screen)
                         self.screen.blit(self.darken, (0, 0))
                         self.mainMenuButton.Draw(self.screen)
                         self.continueButton.Draw(self.screen)
