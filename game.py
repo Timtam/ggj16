@@ -106,7 +106,7 @@ class MainClass:
                         if event.type == pygame.KEYDOWN:
                                 if event.key == K_ESCAPE:
                                         self.state = 0
-                                elif event.key == K_RETURN:
+                                elif event.key == K_RETURN and len(self.inputText) > 0:
                                         if not os.path.exists("save\\"):
                                                 os.makedirs("save\\")
                                         handle = open("save\\" + self.inputText, "w")
@@ -223,7 +223,7 @@ class MainClass:
                         if self.mainMenuButton.GetState():
                                 self.maxButtonIdx = 2
                                 self.buttonIdx = 0
-                                self.buttonTexts = ["Neues Spiel", "Spiel Laden", "Beenden"]
+                                self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
                                 self.state = 0
                         if self.continueButton.GetState():
                                 self.state = 1
