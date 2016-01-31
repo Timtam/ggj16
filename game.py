@@ -25,8 +25,11 @@ class MainClass:
                 self.buttonIdx = 0
                 self.maxButtonIdx = 2
                 self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
-                self.state = 0 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits
+                self.state = 6 # 0 - main menu, 1 - game, 2 - pause, 3 - load game, 4 - save game, 5 - credits, 6 - splash
                 self.fadeOutStream = None
+                self.oldBgmStream = None
+                self.splashEnd = time.time() + 2
+                self.splash = pygame.transform.scale(pygame.image.load("assets\\ui\\splash-16by9.png"), (width, height))
                 
                 f = []
                 for (_,_,files) in os.walk("save\\"):
@@ -106,7 +109,7 @@ class MainClass:
                         if event.type == pygame.KEYDOWN:
                                 if event.key == K_ESCAPE:
                                         self.state = 0
-                                elif event.key == K_RETURN:
+                                elif event.key == K_RETURN and len(self.inputText) > 0:
                                         if not os.path.exists("save\\"):
                                                 os.makedirs("save\\")
                                         handle = open("save\\" + self.inputText, "w")
@@ -135,6 +138,7 @@ class MainClass:
                         if self.newGameButton.GetState():
                                 self.newGameButton.SetState(False)
                                 self.LoadScene("scene1.txt")
+                                self.oldBgmStream = self.currentScene.GetBgmStream()
                                 self.scoreCounter = 0
                                 self.state = 1
                         if self.loadGameButton.GetState():
@@ -156,7 +160,6 @@ class MainClass:
                         self.currentScene.Update()
                         next = self.currentScene.GetNextScene()
                         if next:
-                                oldStream = self.currentScene.GetBgmStream()
                                 if "#" in next:
                                         idx = next.find("#")
                                         counter = next[(idx + 1):]
@@ -200,14 +203,23 @@ class MainClass:
                                         self.creditsScroll = self.creditsScrollStart
                                         self.creditsScrollEnd = -surf.get_height()
                                         self.creditsScrollRange = self.screen.get_height() + surf.get_height()
-                                        self.fadeOutStream = oldStream
+                                        bass = getCommon().getBass()
+                                        try:
+                                                creditsStream = boss.CreateStreamFile(False, "assets\\credits\\music.ogg")
+                                                creditsStream.Channel.Play()
+                                        except:
+                                                print("no credits music found")
+                                        self.fadeOutStream = self.oldBgmStream
                                         self.fadeOutStartTime = time.time()
                                         self.fadeOutDuration = 1
                                 else:
                                         self.LoadScene(next)
                                         newStream = self.currentScene.GetBgmStream()
                                         if newStream:
-                                                self.fadeOutStream = oldStream
+                                                if self.fadeOutStream:
+                                                        self.fadeOutStream.Channel.Stop()
+                                                self.fadeOutStream = self.oldBgmStream
+                                                self.oldBgmStream = newStream
                                                 self.fadeOutStartTime = time.time()
                                                 self.fadeOutDuration = 1
                 elif self.state == 2:
@@ -217,7 +229,9 @@ class MainClass:
                         if self.mainMenuButton.GetState():
                                 self.maxButtonIdx = 2
                                 self.buttonIdx = 0
-                                self.buttonTexts = ["Neues Spiel", "Spiel Laden", "Beenden"]
+                                self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
+                                if self.oldBgmStream:
+                                        self.oldBgmStream.Channel.Stop()
                                 self.state = 0
                         if self.continueButton.GetState():
                                 self.state = 1
@@ -238,9 +252,12 @@ class MainClass:
                                         self.state = 1
                                         handle.close()
                 elif self.state == 5:
-                        alpha = (time.time() - self.creditsStartTime) / 20
+                        alpha = (time.time() - self.creditsStartTime) / 79
                         self.creditsScroll = self.creditsScrollEnd * alpha + self.creditsScrollStart * (1 - alpha)
                         if self.creditsScroll <= self.creditsScrollEnd:
+                                self.state = 0
+                elif self.state == 6:
+                        if time.time() > self.splashEnd:
                                 self.state = 0
                                 
                 if self.fadeOutStream:
@@ -249,10 +266,10 @@ class MainClass:
                         duration = self.fadeOutDuration
                         alpha = (time.time() - start) / duration
                         if alpha > 1:
+                                self.fadeOutStream.Channel.Stop()
                                 self.fadeOutStream = None
-                                stream.Channel.Stop()
                         else:
-                                stream.Channel.SetAttribute(BASS_ATTRIB_VOL, 1 - alpha)
+                                self.fadeOutStream.Channel.SetAttribute(BASS_ATTRIB_VOL, (1 - alpha) * BGM_MAX_VOL)
                                         
         def RenderMenuPointer(self, variant = 0):
                 xOff = (time.time() * 20) % 20
@@ -292,6 +309,9 @@ class MainClass:
                         self.screen.blit(font.render("File: " + self.inputText, 0, (255, 255, 255)), (20, 40))
                 elif self.state == 5:
                         self.screen.blit(self.creditsSurf, ((self.screen.get_width() - self.creditsSurf.get_width()) / 2, self.creditsScroll))
+                elif self.state == 6:
+                        self.screen.blit(self.splash, (0,0))
+                        
                 pygame.display.flip()
                                         
 if __name__ == "__main__":

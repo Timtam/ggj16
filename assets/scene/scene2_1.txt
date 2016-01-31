@@ -4,6 +4,7 @@ scene2_2a
 Grau#-2
 Blau#+2
 schrank.png
+:scene2.mp3
 scene2\christian_2_1.ogg
 Buddy
     An diesem Tag merkte ich, dass ich anders bin. Wenn ich heute an die Ereignisse von damals denke, fällt mir ein Weiterer

@@ -5,6 +5,8 @@ from ui import *
 import Bass4Py
 from Bass4Py import *
 
+BGM_MAX_VOL = 0.20
+
 class commons:
 	def __init__(self):
 		self.font = pygame.font.Font("assets\\font\\KenVector Future.ttf", 14)
