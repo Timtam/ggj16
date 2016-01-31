@@ -1,14 +1,14 @@
 1
 scene5_3a
 deadbuddy.png
-scene5\buddy_5_3.ogg
-Buddy (Gedanken)
-    Die arme Welt. Ich hoffe, mein Nachfolger wird stärker sein als ich.
-#
 scene5\neid_5_1.ogg
 Neid (Gedanken)
     Irgendwo an dir muss es doch noch irgendetwas zu holen geben? Wo? Wo? Ah! Da!
     Vorsichtig... Noch ein kleines Stück... HA! Danke dafür!
+#
+scene5\buddy_5_3.ogg
+Buddy (Gedanken)
+    Die arme Welt. Ich hoffe, mein Nachfolger wird stärker sein als ich.
 #
 scene5\umfallen_1.wav
 Umgebung

@@ -1,13 +1,13 @@
 1
 scene5_3b
 deadboth.png
-scene5\buddy_5_4.ogg
-Buddy
-    Es ist getan, doch nicht vorbei. Die Welt strahlt im hellen Glanz der Farben. Doch der Frieden wird nur von kurzer Dauer sein.
-#
 scene5\neid_5_2.ogg
 Neid
     Was zur- Nein-
+#
+scene5\buddy_5_4.ogg
+Buddy
+    Es ist getan, doch nicht vorbei. Die Welt strahlt im hellen Glanz der Farben. Doch der Frieden wird nur von kurzer Dauer sein.
 #
 scene5\umfalle.wav
 Umgebung
