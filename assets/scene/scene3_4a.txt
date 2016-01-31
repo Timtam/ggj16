@@ -101,6 +101,6 @@ scene3\henry_3_9.ogg
 Stadtstreicher
     Ich hab gehört, die suchen noch einen Ladengehilfen 3 Straßen von hier. Ich geh mal nachher dort vorbei.
 #
-TBA
+scene3\christian_3_18.ogg
 Buddy (Gedanken)
     Das Geben ist mein Ritual, um positiv auf Menschen einzuwirken.

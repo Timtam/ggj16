@@ -92,6 +92,7 @@ class Scene:
                 
                 if self.bgmStream:
                         self.bgmStream.Channel.Play()
+                        self.bgmStream.Channel.SetAttribute(BASS_ATTRIB_VOL, BGM_MAX_VOL)
 			
 		self.textSurfs[0][3].Channel.Play()
 		if self.textSurfs[0][3].Channel.Filename.endswith("silence.mp3"):

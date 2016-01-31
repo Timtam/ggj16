@@ -106,7 +106,7 @@ class MainClass:
                         if event.type == pygame.KEYDOWN:
                                 if event.key == K_ESCAPE:
                                         self.state = 0
-                                elif event.key == K_RETURN:
+                                elif event.key == K_RETURN and len(self.inputText) > 0:
                                         if not os.path.exists("save\\"):
                                                 os.makedirs("save\\")
                                         handle = open("save\\" + self.inputText, "w")
@@ -200,6 +200,12 @@ class MainClass:
                                         self.creditsScroll = self.creditsScrollStart
                                         self.creditsScrollEnd = -surf.get_height()
                                         self.creditsScrollRange = self.screen.get_height() + surf.get_height()
+                                        bass = getCommon().getBass()
+                                        try:
+                                                creditsStream = boss.CreateStreamFile(False, "assets\\credits\\music.ogg")
+                                                creditsStream.Channel.Play()
+                                        except:
+                                                print("no credits music found")
                                         self.fadeOutStream = oldStream
                                         self.fadeOutStartTime = time.time()
                                         self.fadeOutDuration = 1
@@ -217,7 +223,7 @@ class MainClass:
                         if self.mainMenuButton.GetState():
                                 self.maxButtonIdx = 2
                                 self.buttonIdx = 0
-                                self.buttonTexts = ["Neues Spiel", "Spiel Laden", "Beenden"]
+                                self.buttonTexts = ["Neues Spiel", "Spiel laden", "Beenden"]
                                 self.state = 0
                         if self.continueButton.GetState():
                                 self.state = 1
@@ -252,7 +258,7 @@ class MainClass:
                                 self.fadeOutStream = None
                                 stream.Channel.Stop()
                         else:
-                                stream.Channel.SetAttribute(BASS_ATTRIB_VOL, 1 - alpha)
+                                stream.Channel.SetAttribute(BASS_ATTRIB_VOL, (1 - alpha) * BGM_MAX_VOL)
                                         
         def RenderMenuPointer(self, variant = 0):
                 xOff = (time.time() * 20) % 20
