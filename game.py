@@ -221,7 +221,7 @@ class MainClass:
                                                 self.fadeOutStream = self.oldBgmStream
                                                 self.oldBgmStream = newStream
                                                 self.fadeOutStartTime = time.time()
-                                                self.fadeOutDuration = 1
+                                                self.fadeOutDuration = BGM_FADE_DURATION
                 elif self.state == 2:
                         self.continueButton.Update()
                         self.mainMenuButton.Update()

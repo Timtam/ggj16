@@ -91,8 +91,9 @@ class Scene:
                                 print("load bgm failed")
                 
                 if self.bgmStream:
+                        self.bgmStream.Channel.SetAttribute(BASS_ATTRIB_VOL, 0)
+                        self.bgmStartTime = time.time()
                         self.bgmStream.Channel.Play()
-                        self.bgmStream.Channel.SetAttribute(BASS_ATTRIB_VOL, BGM_MAX_VOL)
 			
 		self.textSurfs[0][3].Channel.Play()
 		if self.textSurfs[0][3].Channel.Filename.endswith("silence.mp3"):
@@ -166,6 +167,10 @@ class Scene:
                                                 self.switchScene += "#" + self.choices[self.selectedChoice]
 			
 	def Update(self):
+                alpha = (time.time() - self.bgmStartTime) / BGM_FADE_DURATION
+                if alpha > 1: alpha = 1
+                self.bgmStream.Channel.SetAttribute(BASS_ATTRIB_VOL, BGM_MAX_VOL * alpha)
+                
 		if self.state == 0:
 			return
 		elif self.state == 1 and self.switchScene == None:
