@@ -63,6 +63,7 @@ Hochschule Anhalt
 Licenses
 --------
 
+accessible_output (Python Software Foundation License (PSF))
 bass (free for non-commercial use)
 Kenney Game Assets (CC0)
 nvdaControllerClient (GPL v2)
@@ -76,7 +77,7 @@ Python (PSF)
 
 
 
-Vielen Dank fürs Spielen!
+Thanks for playing!
 
 
 
@@ -110,7 +111,7 @@ Vielen Dank fürs Spielen!
 
 
 
-Bei der Produktion dieses Spieles wurden keine Versuche an Studenten durchgeführt.
+While developing this game, no students were harmed.
 
 
 
