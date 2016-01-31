@@ -73,7 +73,7 @@ class Scene:
 				height += th + 2
 				if tw > width:
 					width = tw
-			surf = [pygame.Surface((width, height), pygame.SRCALPHA), height, width, stream, False]
+			surf = [pygame.Surface((width, height), pygame.SRCALPHA), height, width, stream, False, box.strip()]
 			height = 0
 			for line in lines:
 				tw, th = font.size(line)
