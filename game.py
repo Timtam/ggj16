@@ -200,6 +200,12 @@ class MainClass:
                                         self.creditsScroll = self.creditsScrollStart
                                         self.creditsScrollEnd = -surf.get_height()
                                         self.creditsScrollRange = self.screen.get_height() + surf.get_height()
+                                        bass = getCommon().getBass()
+                                        try:
+                                                creditsStream = boss.CreateStreamFile(False, "assets\\credits\\music.ogg")
+                                                creditsStream.Channel.Play()
+                                        except:
+                                                print("no credits music found")
                                         self.fadeOutStream = oldStream
                                         self.fadeOutStartTime = time.time()
                                         self.fadeOutDuration = 1
