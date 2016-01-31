@@ -27,10 +27,14 @@ scene4/buddy_4_2.ogg
 Buddy
     Hey, was ist denn los? Was ist passiert?
 #
-scene4/dave_4_2_v2.ogg
+scene4/dave_4_2_v3_1.ogg
 Angestellter
     Ich wurde gefeuert! Das ist passiert! Und das Beste: OHNE EINEN beschissenen Grund! Was denkt sich diese kleine Hure
-    eigentlich, wer sie ist? Ich hab mir hier 10 Jahre lang den Arsch aufgerissen. UND FÜR WAS? Einen feuchten Händedruck und
+    eigentlich, wer sie ist?
+#
+scene4/dave_4_2_v3_2.ogg
+Angestellter
+    Ich hab mir hier 10 Jahre lang den Arsch aufgerissen. UND FÜR WAS? Einen feuchten Händedruck und
     ein "viel Erfolg auf Ihrem weiteren Berufsweg."
 #
 //silence

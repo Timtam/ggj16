@@ -205,7 +205,7 @@ class MainClass:
                                         self.creditsScrollRange = self.screen.get_height() + surf.get_height()
                                         bass = getCommon().getBass()
                                         try:
-                                                creditsStream = boss.CreateStreamFile(False, "assets\\credits\\music.ogg")
+                                                creditsStream = bass.StreamCreateFile(False, "assets\\credits\\music.ogg")
                                                 creditsStream.Channel.Play()
                                         except:
                                                 print("no credits music found")
@@ -248,6 +248,7 @@ class MainClass:
                                         b[0].SetState(False)
                                         handle = open("save\\" + b[1], "r")
                                         self.LoadScene(handle.readline().strip())
+                                        self.oldBgmStream = self.currentScene.GetBgmStream()
                                         self.scoreCounter = int(handle.readline().strip())
                                         self.state = 1
                                         handle.close()
