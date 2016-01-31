@@ -1,5 +1,7 @@
 0
 weltgrau.png
 soundTBA
-Nach Buddys Tod wird Welt wieder grau --> Menschen kehren zu ihren alten Angewohnheiten zurück
-Jedoch wird ein inhärent "buntes" Kind geboren
+Die Welt wird wieder trist. Die Menschen fallen in ihre alten Gewohnheiten zurück.
+#
+soundTBA
+Allerdings gibt es noch Hoffnung...
